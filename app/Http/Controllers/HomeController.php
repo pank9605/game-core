@@ -57,7 +57,7 @@ class HomeController extends Controller
         $user->address->cellphone = $request->input('cellphone');
         $user->address->phone = $request->input('phone');
 
-        if ($request->has('password')){
+        if ($request->input('password') != null){
             $user->password = bcrypt($request->input('password')) ;
         }
 
