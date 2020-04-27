@@ -102,7 +102,12 @@
                     </li>
 
                     <li>
-                        <a href=""><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                        <a href="{{url(route('logout'))}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i>
+                            Cerrar Sesión
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </a>
                     </li>
                 </ul>
             </div>

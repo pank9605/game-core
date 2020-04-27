@@ -46,7 +46,7 @@ class HomeController extends Controller
         $user->age = $request->input('age');
         $user->gender = $request->input('gender');
         $user->email = $request->input('email');
-        $user->password = bcrypt($request->input('password')) ;
+
 
         $user->address->street = $request->input('street');
         $user->address->outdoor_number = $request->input('outdoor_number');
@@ -56,6 +56,10 @@ class HomeController extends Controller
         $user->address->post_code = $request->input('post_code');
         $user->address->cellphone = $request->input('cellphone');
         $user->address->phone = $request->input('phone');
+
+        if ($request->has('password')){
+            $user->password = bcrypt($request->input('password')) ;
+        }
 
         if ($request->hasFile('cover_image')) {
             if ($user->cover_image != null){

@@ -87,14 +87,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-light"><i class="fas fa-lock"></i></span>
                             </div>
-                            <input type="password" class="form-control" name="password" id="" value="{{$user->password}}" placeholder="Contraseña">
+                            <input type="password" class="form-control" name="password" id="" placeholder="Contraseña">
                         </div>
 
                         <div class="form-group input-group col-12 col-xl-6">
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-light"><i class="fas fa-lock"></i></span>
                             </div>
-                            <input type="password" class="form-control" name="confirm_password" id="" value="{{$user->password}}" placeholder="Confirmar Contraseña">
+                            <input type="password" class="form-control" name="confirm_password" id="" placeholder="Confirmar Contraseña">
                         </div>
 
                         <div class="form-group input-group col-12 col-xl-6">

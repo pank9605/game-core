@@ -9,6 +9,7 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\Types\Collection;
+use File;
 
 class FoundersController extends Controller
 {
@@ -176,12 +177,19 @@ class FoundersController extends Controller
         //
         $founder = User::find($id);
 
-        if ($founder->role->name === "Fundador"){
-            if ($founder->cover_image != null){
-                if (substr($founder->cover_image,0,4)=="http"){
+        if ($founder->role->name === "Fundador") {
+            if ($founder->cover_image != null || $founder->porfile_image != null) {
+                if (substr($founder->cover_image, 0, 4) == "http") {
                     $deleted = true;
                 } else {
-                    $fullPath = public_path() . '/images/cover_images/' . $user->cover_image;
+                    $fullPath = public_path() . '/images/cover_images/' . $founder->cover_image;
+                    $deleted = File::delete($fullPath);
+                }
+
+                if (substr($founder->porfile_image, 0, 4) == "http") {
+                    $deleted = true;
+                } else {
+                    $fullPath = public_path() . '/images/porfile_images/' . $founder->porfile_image;
                     $deleted = File::delete($fullPath);
                 }
                 //Eliminar el registro
@@ -191,7 +199,7 @@ class FoundersController extends Controller
                     $notification = "!El Fundador se ha eliminado correctamente¡";
                     return back()->with(compact('notification'));
                 }
-            }else{
+            } else {
                 $founder->address()->delete();
                 $founder->delete();
 
