@@ -31,6 +31,9 @@ class UserTableSeeder extends Seeder
         Address::create(array('street' => 'Allende','colony' => 'Raúl Romero','city' => 'Nezahualcóyotl','interior_number' => '2',
             'outdoor_number' => '7','phone' => '656565','cellphone' => '5555489656','user_id' => '52',));
 
+        factory(\App\News::class,50)->create();
+        factory(\App\NewsImage::class,300)->create();
+
 
         //factory(\App\Role::class,10)->create();*/
 

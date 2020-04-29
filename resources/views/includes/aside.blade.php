@@ -20,9 +20,6 @@
         <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
         <img src="{{asset('img/spo.gif')}}" class="img-fluid" alt="Responsive image">
 
-        <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-        <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-        <img src="{{asset('img/spo.gif')}}" class="img-fluid" alt="Responsive image">
 
     </div>
 </div>

@@ -180,32 +180,31 @@
             </div>
 
 
-
-            <div class="row news-container col-11">
+            @foreach($news as $item)
+                <div class="row news-container col-11">
                 <div class="col-xl-4 align-self-center">
-                    <img src="{{asset('img/3.jpg')}}">
+                    <img src="{{$item->news_image_feature}}">
                 </div>
                 <div class="col-xl-8 justify-content-center">
                     <div class="news-title text-center mt-2">
-                        Titlulo de la noticia
+                        {{$item->title}}
                     </div>
                     <hr>
                     <div class="news-description text-justify">
-                        descripción de la noticia descripción de la noticia descripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia...
+                        {!!$item->introduction!!}
                     </div>
 
                     <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
                         <div class="col-6 news-date p-0">
                             <ul>
                                 <li>
-                                    Por: <a href="">pank9605 </a><i class="fas fa-user-tie"></i>
+                                    Por: <a href="">{{$item->user->name}} </a><i class="fas fa-user-tie"></i>
                                 </li>
                                 <li>
-                                    Hora: 10:00pm <i class="fas fa-clock"></i>
+                                    Hora: {{$item->date}} <i class="fas fa-clock"></i>
                                 </li>
-                                <li>Fecha: 03/03/2019
+                                <li>
+                                    Fecha: {{$item->date}}
                                     <i class="fas fa-calendar-alt"></i>
                                 </li>
                             </ul>
@@ -216,332 +215,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row news-container col-11">
-                <div class="col-xl-4 align-self-center">
-                    <img src="{{asset('img/3.jpg')}}">
-                </div>
-                <div class="col-xl-8 justify-content-center">
-                    <div class="news-title text-center mt-2">
-                        Titlulo de la noticia
-                    </div>
-                    <hr>
-                    <div class="news-description text-justify">
-                        descripción de la noticia descripción de la noticia descripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia...
-                    </div>
-
-                    <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
-                        <div class="col-6 news-date p-0">
-                            <ul>
-                                <li>
-                                    Por: <a href="">pank9605 </a><i class="fas fa-user-tie"></i>
-                                </li>
-                                <li>
-                                    Hora: 10:00pm <i class="fas fa-clock"></i>
-                                </li>
-                                <li>Fecha: 03/03/2019
-                                    <i class="fas fa-calendar-alt"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 text-center align-self-center">
-                            <button class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row news-container col-11">
-                <div class="col-xl-4 align-self-center">
-                    <img src="{{asset('img/3.jpg')}}">
-                </div>
-                <div class="col-xl-8 justify-content-center">
-                    <div class="news-title text-center mt-2">
-                        Titlulo de la noticia
-                    </div>
-                    <hr>
-                    <div class="news-description text-justify">
-                        descripción de la noticia descripción de la noticia descripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia...
-                    </div>
-
-                    <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
-                        <div class="col-6 news-date p-0">
-                            <ul>
-                                <li>
-                                    Por: <a href="">pank9605 </a><i class="fas fa-user-tie"></i>
-                                </li>
-                                <li>
-                                    Hora: 10:00pm <i class="fas fa-clock"></i>
-                                </li>
-                                <li>Fecha: 03/03/2019
-                                    <i class="fas fa-calendar-alt"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 text-center align-self-center">
-                            <button class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row news-container col-11">
-                <div class="col-xl-4 align-self-center">
-                    <img src="{{asset('img/3.jpg')}}">
-                </div>
-                <div class="col-xl-8 justify-content-center">
-                    <div class="news-title text-center mt-2">
-                        Titlulo de la noticia
-                    </div>
-                    <hr>
-                    <div class="news-description text-justify">
-                        descripción de la noticia descripción de la noticia descripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia...
-                    </div>
-
-                    <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
-                        <div class="col-6 news-date p-0">
-                            <ul>
-                                <li>
-                                    Por: <a href="">pank9605 </a><i class="fas fa-user-tie"></i>
-                                </li>
-                                <li>
-                                    Hora: 10:00pm <i class="fas fa-clock"></i>
-                                </li>
-                                <li>Fecha: 03/03/2019
-                                    <i class="fas fa-calendar-alt"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 text-center align-self-center">
-                            <button class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row news-container col-11">
-                <div class="col-xl-4 align-self-center">
-                    <img src="{{asset('img/3.jpg')}}">
-                </div>
-                <div class="col-xl-8 justify-content-center">
-                    <div class="news-title text-center mt-2">
-                        Titlulo de la noticia
-                    </div>
-                    <hr>
-                    <div class="news-description text-justify">
-                        descripción de la noticia descripción de la noticia descripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia...
-                    </div>
-
-                    <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
-                        <div class="col-6 news-date p-0">
-                            <ul>
-                                <li>
-                                    Por: <a href="">pank9605 </a><i class="fas fa-user-tie"></i>
-                                </li>
-                                <li>
-                                    Hora: 10:00pm <i class="fas fa-clock"></i>
-                                </li>
-                                <li>Fecha: 03/03/2019
-                                    <i class="fas fa-calendar-alt"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 text-center align-self-center">
-                            <button class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row news-container col-11">
-                <div class="col-xl-4 align-self-center">
-                    <img src="{{asset('img/3.jpg')}}">
-                </div>
-                <div class="col-xl-8 justify-content-center">
-                    <div class="news-title text-center mt-2">
-                        Titlulo de la noticia
-                    </div>
-                    <hr>
-                    <div class="news-description text-justify">
-                        descripción de la noticia descripción de la noticia descripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia...
-                    </div>
-
-                    <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
-                        <div class="col-6 news-date p-0">
-                            <ul>
-                                <li>
-                                    Por: <a href="">pank9605 </a><i class="fas fa-user-tie"></i>
-                                </li>
-                                <li>
-                                    Hora: 10:00pm <i class="fas fa-clock"></i>
-                                </li>
-                                <li>Fecha: 03/03/2019
-                                    <i class="fas fa-calendar-alt"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 text-center align-self-center">
-                            <button class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row news-container col-11">
-                <div class="col-xl-4 align-self-center">
-                    <img src="{{asset('img/3.jpg')}}">
-                </div>
-                <div class="col-xl-8 justify-content-center">
-                    <div class="news-title text-center mt-2">
-                        Titlulo de la noticia
-                    </div>
-                    <hr>
-                    <div class="news-description text-justify">
-                        descripción de la noticia descripción de la noticia descripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia...
-                    </div>
-
-                    <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
-                        <div class="col-6 news-date p-0">
-                            <ul>
-                                <li>
-                                    Por: <a href="">pank9605 </a><i class="fas fa-user-tie"></i>
-                                </li>
-                                <li>
-                                    Hora: 10:00pm <i class="fas fa-clock"></i>
-                                </li>
-                                <li>Fecha: 03/03/2019
-                                    <i class="fas fa-calendar-alt"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 text-center align-self-center">
-                            <button class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row news-container col-11">
-                <div class="col-xl-4 align-self-center">
-                    <img src="{{asset('img/3.jpg')}}">
-                </div>
-                <div class="col-xl-8 justify-content-center">
-                    <div class="news-title text-center mt-2">
-                        Titlulo de la noticia
-                    </div>
-                    <hr>
-                    <div class="news-description text-justify">
-                        descripción de la noticia descripción de la noticia descripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia...
-                    </div>
-
-                    <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
-                        <div class="col-6 news-date p-0">
-                            <ul>
-                                <li>
-                                    Por: <a href="">pank9605 </a><i class="fas fa-user-tie"></i>
-                                </li>
-                                <li>
-                                    Hora: 10:00pm <i class="fas fa-clock"></i>
-                                </li>
-                                <li>Fecha: 03/03/2019
-                                    <i class="fas fa-calendar-alt"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 text-center align-self-center">
-                            <button class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row news-container col-11">
-                <div class="col-xl-4 align-self-center">
-                    <img src="{{asset('img/3.jpg')}}">
-                </div>
-                <div class="col-xl-8 justify-content-center">
-                    <div class="news-title text-center mt-2">
-                        Titlulo de la noticia
-                    </div>
-                    <hr>
-                    <div class="news-description text-justify">
-                        descripción de la noticia descripción de la noticia descripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia...
-                    </div>
-
-                    <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
-                        <div class="col-6 news-date p-0">
-                            <ul>
-                                <li>
-                                    Por: <a href="">pank9605 </a><i class="fas fa-user-tie"></i>
-                                </li>
-                                <li>
-                                    Hora: 10:00pm <i class="fas fa-clock"></i>
-                                </li>
-                                <li>Fecha: 03/03/2019
-                                    <i class="fas fa-calendar-alt"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 text-center align-self-center">
-                            <button class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row news-container col-11">
-                <div class="col-xl-4 align-self-center">
-                    <img src="{{asset('img/3.jpg')}}">
-                </div>
-                <div class="col-xl-8 justify-content-center">
-                    <div class="news-title text-center mt-2">
-                        Titlulo de la noticia
-                    </div>
-                    <hr>
-                    <div class="news-description text-justify">
-                        descripción de la noticia descripción de la noticia descripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de la noticiadescripción de
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia
-                        descripción de la noticia descripción de la noticia descripción de la noticia descripción de la noticia v descripción de la noticianoticiadescripción de la noticia descripción de la noticia descripción de la noticia...
-                    </div>
-
-                    <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
-                        <div class="col-6 news-date p-0">
-                            <ul>
-                                <li>
-                                    Por: <a href="">pank9605 </a><i class="fas fa-user-tie"></i>
-                                </li>
-                                <li>
-                                    Hora: 10:00pm <i class="fas fa-clock"></i>
-                                </li>
-                                <li>Fecha: 03/03/2019
-                                    <i class="fas fa-calendar-alt"></i>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-6 text-center align-self-center">
-                            <button class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
             <nav aria-label="Page navigation example">
                 <ul class="pagination pagination-lg justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    {{$news->links()}}
                 </ul>
             </nav>
         </div>

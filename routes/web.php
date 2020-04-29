@@ -17,9 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', 'WelcomeController@index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::post('news/ckeditor/upload', 'NewsController@upload')->name('upload');
 
 Route::get('/admin/founder', 'FoundersController@index');
 Route::get('/admin/founder/create','FoundersController@create');
@@ -27,8 +32,15 @@ Route::post('/admin/founder/create','FoundersController@store'); //Nuevo Registr
 Route::get('/admin/founder/edit/{id}','FoundersController@show'); //Formulario para Editar Registro
 Route::post('/admin/founder/edit/{id}','FoundersController@update'); //Editar Registro
 
+
+Route::get('/news', 'NewsController@index');
+Route::get('/news/create', 'NewsController@create');
+Route::post('/news/create', 'NewsController@store');
+
 Route::get('/porfile/{id}','HomeController@show'); //Formulario para Perfil
 Route::post('/porfile/edit/{id}','HomeController@update'); //Editar Perfil
+
+
 
 Route::delete('/admin/founder/{id}/delete','FoundersController@destroy'); //Eliminar
 

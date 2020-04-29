@@ -13,6 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/adminFunctions.js') }}" defer></script>
     <script src="{{asset('js/prueba.js')}}" defer></script>
+    <script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}"></script>
 
 
 
@@ -75,16 +76,16 @@
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             @if(auth()->user()->role->name == "Fundador" || auth()->user()->role->name == "Administrador" || auth()->user()->role->name == "Editor")
                             <li>
-                                <a href="http://127.0.0.1:8000/admin"><i class="fas fa-newspaper"></i> Noticias</a>
+                                <a href="{{url('/news')}}"><i class="fas fa-newspaper"></i> Noticias</a>
                             </li>
                             @endif
                             @if(auth()->user()->role->name == "Fundador" || auth()->user()->role->name == "Administrador")
-                            <li>
+                            {{--<li>
                                 <a href="#"><i class="fas fa-list"></i> Categorias</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fas fa-tasks"></i> Clasificaciones</a>
-                            </li>
+                            </li>--}}
                             @endif
                             @if(auth()->user()->role->name == "Fundador")
                             <li>
@@ -148,6 +149,10 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+
+</script>
 
 </body>
 </html>

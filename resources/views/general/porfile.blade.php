@@ -70,9 +70,21 @@
                             </div>
                             <select name="gender" class="col-12 form-control">
                                 <option><i class="fas fa-user"></i> Seleccione se Genero...</option>
-                                <option>Masculino</option>
-                                <option>Femenino</option>
-                                <option>Indefinido</option>
+
+                                @if($user->gender == "Masculino")
+                                    <option selected>Masculino</option>
+                                    <option>Femenino</option>
+                                    <option>Indefinido</option>
+                                @elseif(($user->gender == "Femenino"))
+                                    <option>Masculino</option>
+                                    <option selected>Femenino</option>
+                                    <option>Indefinido</option>
+                                @else
+                                    <option>Masculino</option>
+                                    <option selected>Femenino</option>
+                                    <option selected>Indefinido</option>
+                                @endif
+
                             </select>
                         </div>
 
@@ -170,7 +182,7 @@
                     <div class="form-row col-12 col-xl-4 justify-content-center align-items-center">
                         <div class="card text-center">
                             <div class="card-header">
-                                Imagen Actual de Postada
+                                Imagen Actual de Portada
                             </div>
                             <div class="card-body">
                                 <img class="img-fluid" src="{{$user->cover_image_url}}" width="80" height="80">
