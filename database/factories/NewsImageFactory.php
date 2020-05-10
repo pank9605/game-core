@@ -9,7 +9,7 @@ $factory->define(NewsImage::class, function (Faker $faker) {
 
     return [
         //
-        'image' => $faker->imageUrl(1000,1000),
+        'image' => $faker->imageUrl(1280,720),
         'featured' => $faker->boolean,
         'news_id' => $faker->numberBetween(1,50)
     ];

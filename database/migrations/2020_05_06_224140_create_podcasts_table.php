@@ -15,7 +15,7 @@ class CreatePodcastsTable extends Migration
     {
         Schema::create('podcasts', function (Blueprint $table) {
             $table->id();
-            $table->text('url')->unique();
+            $table->text('url');
 
             //FK
             $table->unsignedBigInteger('user_id')->nullable();
