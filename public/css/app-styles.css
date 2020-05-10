@@ -3,7 +3,9 @@
 }
 .menu-container{
     z-index: 999;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-top:12px;
+    padding-bottom: 12px;
 }
 
 .carousel-indicators li {
@@ -14,6 +16,15 @@
 
 #carousel1 img{
     max-height: 980px;
+    height: 800px !important;
+}
+
+@supports(object-fit: cover){
+    #carousel1 img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
 }
 
 #search-content{
@@ -39,13 +50,25 @@
 
 .list{
     overflow-y: scroll;
-    height: 400px;
+    height: 300px;
+}
+
+.calification{
+    margin-right: 15px !important;
 }
 
 .list img{
     width: 35px;
-    height: 35px;
+    height: 35px !important;
     margin-right: 15px;
+}
+
+@supports(object-fit: cover){
+    .list img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
 }
 
 
@@ -73,19 +96,23 @@
 }
 
 .news-title{
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
 }
 
 .news-description{
     font-family: "fajala", Helvetica;
-    font-size: 16px;
+    font-size: 13px;
     letter-spacing: 2px;
 }
 
 .news-date ul{
     list-style: none;
     padding: 0px;
+}
+
+.news-date >ul> li{
+    font-size: 12px;
 }
 
 
@@ -195,3 +222,14 @@
     width: 70%;
 }
 
+/*News*/
+.news-item-container{
+    padding-top: 110px !important;
+}
+
+/*Categories and Clasifications*/
+
+
+.padding-top{
+    padding-top: 60px !important;
+}

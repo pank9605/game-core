@@ -2,13 +2,16 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'name', 'first_name', 'last_name', 'age', 'gender', 'email', 'password', 'cover_image', 'porfile_image'
+        'username', 'name', 'first_name', 'last_name', 'birthdate', 'gender', 'email', 'password', 'cover_image', 'porfile_image'
     ];
 
     /**
@@ -69,5 +72,15 @@ class User extends Authenticatable
         }else{
             return '/images/cover_images/default.jpg';
         }
+    }
+
+    public function getBirthdateDateAttribute(){
+        if ($this->birthdate != null){
+            return date("Y-m-d",strtotime($this->birthdate));
+        }
+    }
+
+    public function getAgeAttribute(){
+        return Carbon::createFromDate($this->birthdate)->age;
     }
 }

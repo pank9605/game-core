@@ -23,6 +23,7 @@
     width: 100%; }
 
 #sidebar {
+    z-index: 9999;
     min-width: 300px;
     max-width: 300px;
     margin-left: -300px;
@@ -34,6 +35,20 @@
 #sidebar.active {
     margin-left: 0px;
 }
+
+#sidebar-content {
+    min-width: 300px;
+    max-width: 300px;
+    margin-left: -300px;
+    background: #fff;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s; }
+#sidebar-content.active {
+    margin-left: 0px;
+}
+
 #sidebar .logo {
     display: block;
     width: 120px;
@@ -105,8 +120,15 @@ a[data-toggle="collapse"] {
 
 .img-background-container{
     padding: 0px;
-
     height: 180px;
+}
+
+@supports(object-fit: cover){
+    .img-background-container img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
 }
 
 .img-background-container img {
@@ -116,9 +138,14 @@ a[data-toggle="collapse"] {
 }
 
 
-.img-porfile-container{
-
+@supports(object-fit: cover){
+    .img-porfile-container img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
 }
+
 .img-porfile-container img{
     width: 60px;
     height: 60px;
@@ -136,7 +163,7 @@ a[data-toggle="collapse"] {
 
 .right-container{
     float: right;
-    margin: 0px 10px 0px 10px;
+    margin: 0px -10px 0px 10px;
 }
 
 .data-role{
@@ -150,19 +177,8 @@ a[data-toggle="collapse"] {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
-}
-
-.overlay {
-    display: none;
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 998;
+    z-index: 9999;
     opacity: 0;
     transition: all 0.5s ease-in-out;
 }
@@ -170,4 +186,51 @@ a[data-toggle="collapse"] {
 .overlay.active {
     display: block;
     opacity: 1;
+}
+
+
+/*Founders, Admins, Editors*/
+.images-table{
+    max-width: 80px !important;
+    height: 80px !important;;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3), 0px 0px 1px #ffffff inset, 0px -3px 2px rgba(0, 0, 0, 0.25) inset;
+}
+
+@supports(object-fit: cover){
+    td img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+
+
+/*Porfile*/
+.img-edit-porfile{
+    width: 150px !important;
+    height: 150px !important;
+}
+
+@supports(object-fit: cover){
+    .avatar img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+
+.news-image{
+    width: 250px !important;
+    height: 250px !important;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3), 0px 0px 1px #ffffff inset, 0px -3px 2px rgba(0, 0, 0, 0.25) inset;
+}
+
+@supports(object-fit: cover){
+    .card-body img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
 }

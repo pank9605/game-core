@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Carbon\CarbonImmutable;
+use App\Category;
 use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
@@ -25,30 +26,41 @@ class News extends Model
         return $this->hasMany('App\NewsImage');
     }
 
-    public function getIntroductionAttribute(){
+    public function getNewsIntroductionAttribute(){
         /*$words = explode(' ',$description);
         $introduction = "" ;
         for ($i =0;$i<30;$i++){
             $introduction .= $words[$i].' ';
         }*/
-        $description = $this->description;
+        $description = $this->introduction;
         $introduction = substr($description,0,300).'...';
         return $introduction;
     }
 
-    public function getCategoryAttribute(){
+    public function getMobileIntroductionAttribute(){
+        /*$words = explode(' ',$description);
+        $introduction = "" ;
+        for ($i =0;$i<30;$i++){
+            $introduction .= $words[$i].' ';
+        }*/
+        $description = $this->introduction;
+        $introduction = substr($description,0,100).'...';
+        return $introduction;
+    }
+
+    public function getCategoryNameAttribute(){
         if ($this->category_id == null){
             return "Sin Categoria";
         }else{
-            return $this->category_id;
+            return $this->category->name;
         }
     }
 
-    public function getClasificationAttribute(){
+    public function getClasificationNameAttribute(){
         if ($this->clasification_id == null){
             return "Sin Vlasificación";
         }else{
-            return $this->clasification_id;
+            return $this->clasification->name;
         }
     }
 
@@ -56,7 +68,7 @@ class News extends Model
         return date("d-m-Y H:i",strtotime($this->publish_date));
     }
 
-    public function getNewsImageFeatureAttribute(){
+    public function getNewsImageFeaturedAttribute(){
         $featuredImage = $this->images()->where('featured',true)->first();
 
         if (!$featuredImage){
@@ -78,4 +90,9 @@ class News extends Model
             }
         }
     }
+
+    public function getTimeAttribute(){
+        return date("d-m-Y H:i a",strtotime($this->publish_date));
+    }
+
 }

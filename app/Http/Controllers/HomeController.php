@@ -34,7 +34,18 @@ class HomeController extends Controller
 
     public function show($id){
         $user = User::find($id);
-        return view('general.porfile')->with(compact('user'));
+        if (auth()->user()->id == $id){
+            return view('general.porfile')->with(compact('user'));
+        }
+        else{
+            return back();
+        }
+    }
+
+    public function showNews($category,$clasification,$id){
+        $news = News::find($id);
+
+        return view('general.news')->with(compact('news'));
     }
 
     public function update(Request $request, $id)
@@ -45,9 +56,12 @@ class HomeController extends Controller
         $user->name = $request->input('name');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
-        $user->age = $request->input('age');
+        $user->birthdate = $request->input('birthdate');
         $user->gender = $request->input('gender');
         $user->email = $request->input('email');
+        if ($request->input('password') != null){
+            $user->password = bcrypt($request->input('password')) ;
+        }
 
 
         $user->address->street = $request->input('street');
@@ -55,13 +69,10 @@ class HomeController extends Controller
         $user->address->interior_number = $request->input('interior_number');
         $user->address->colony = $request->input('colony');
         $user->address->city = $request->input('city');
-        $user->address->post_code = $request->input('post_code');
+        $user->address->zip = $request->input('zip');
         $user->address->cellphone = $request->input('cellphone');
         $user->address->phone = $request->input('phone');
 
-        if ($request->input('password') != null){
-            $user->password = bcrypt($request->input('password')) ;
-        }
 
         if ($request->hasFile('cover_image')) {
             if ($user->cover_image != null){

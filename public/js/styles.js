@@ -1,18 +1,28 @@
 $(window).scroll(function() {
-    if ($("#menu").offset().top > 56) {
-        $("#menu").css('background','black');
-        //$("#menu").height(50);
+    if ($("#menu").offset().top > 90) {
+        $("#menu").css('background','rgba(0, 0, 0, 0.9)');
 
-        $("#menu").css('boxShadow','0px 0px 1px rgba(0, 0, 0, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.3), 0px 0px 1px #ffffff inset, 0px -3px 2px rgba(0, 0, 0, 0.25) inset');
-        $("#logo").height(30);
+        $("#menu").animate({
+            paddingTop: "5px",
+            paddingBottom: "5px",
+
+        },{
+            queue: false,
+        });
+
     } else {
-        $("#menu").css('background','rgba(0, 0, 0, 0.4)');
+        $("#menu").css('background','rgba(0, 0, 0, 0.7)');
 
-        //$("#menu").height(70);
-        $("#menu").css('boxShadow','');
-        $("#logo").height(40);
+        $("#menu").animate({
+            paddingTop: "12px",
+            paddingBottom: "12px",
+        },{
+            queue: false,
+        });
+
     }
 });
+
 
 
 window.onload = function ()  {
@@ -31,7 +41,22 @@ window.onload = function ()  {
         $('.collapse.in').toggleClass('in');
         $('a[aria-expanded=true]').attr('aria-expanded', 'false');
     });
+
 };
+
+$(function() {
+    $(".dial").knob({
+        'min':0,
+        'max':100,
+        'width':40,
+        'height':40
+    });
+});
+
+
+
+
+
 
 
 

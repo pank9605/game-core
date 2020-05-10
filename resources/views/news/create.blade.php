@@ -1,62 +1,95 @@
 @extends('layouts.admin')
+@section('img-background')
+    <div class="page-header header-filter" data-parallax="true" style="background-image:url('{{asset('img/preba.jpg')}}');"></div>
+@endsection
 @section('content')
-    <div class="card border-dark">
-        <div class="card-header bg-dark text-light">
-            <h3>Agregar Noticias</h3>
-        </div>
-        <form method="POST" action="{{url('/news/create')}}">
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-text card-header-primary">
+                <div class="card-text">
+                    <h4 class="card-title">Agregar Noticias</h4>
+                </div>
+            </div>
             <div class="card-body">
-                @csrf
-                <div class="row">
-                <div class="col-9 bg-dark form-group">
-                    <textarea class="ckeditor" name="description" id="editor1" rows="20" cols="80">
-                        Este es el textarea que es modificado por la clase ckeditor
-                    </textarea>
-                </div>
-                <div class="form-row col-3 form-group">
-                    <div class="col-12">
-                       <input class="form-control" type="text" name="title" placeholder="Titulo de la Noticia">
-                    </div>
+                <form method="POST" action="{{url('/staff/news/create')}}">
+                    <div class="card-body">
+                        @csrf
+                        <div class="row">
+                            <div class="col-9 form-group">
+                                <textarea name="description"></textarea>
+                            </div>
+                            <div class="form-row col-3">
+                                <div class="form-group col-12">
+                                    <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Titulo de la Noticia">
+                                </div>
 
-                    <div class="col-12">
-                        <select class="custom-select" name="category">
-                            <option>Seleccione una Categoría</option>
-                            @foreach($categories as $category)
-                                <option>{{$category->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                                <div class="form-group col-12">
+                                    <label for="exampleFormControlTextarea1">Introducción de la noticia</label>
+                                    <textarea class="form-control" name="introduction" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
 
-                    <div class="col-12">
-                        <select class="custom-select" name="clasification">
-                            <option>Seleccione una Clasificación</option>
-                            @foreach($clasifications as $clasification)
-                                <option>{{$clasification->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                                <div class="col-12 form-group">
+                                    <select class="form-control selectpicker" name="category">
+                                        <option>Seleccione una Categoría</option>
+                                        @foreach($categories as $category)
+                                            <option>{{$category->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                    <div class="col-12">
-                        <input class="form-control" type="datetime-local" name="publish_date" value="{{$date}}">
-                    </div>
+                                <div class="col-12 form-group">
+                                    <select class="form-control selectpicker" name="clasification">
+                                        <option>Seleccione una Clasificación</option>
+                                        @foreach($clasifications as $clasification)
+                                            <option>{{$clasification->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                    <div class="col-12">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch1" name="featured">
-                            <label class="custom-control-label" for="customSwitch1">Noticia Destacada</label>
+                                <div class="col-12">
+                                    <input class="form-control" type="datetime-local" name="publish_date" value="{{$date}}">
+                                </div>
+
+
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox" name="featured" >
+                                        Destacar Noticia
+                                        <span class="form-check-sign">
+                                              <span class="check"></span>
+                                          </span>
+                                    </label>
+                                </div>
+
+                            </div>
                         </div>
-                    </div>
-                </div>
-                </div>
 
+                    </div>
+                    <div class="footer text-center">
+                        <button type="submit" class="btn btn-primary col-3">Agregar</button>
+                    </div>
+                </form>
             </div>
-            <div class="card-footer bg-dark text-light text-center">
-                <input type="hidden" name="author" value="{{auth()->id()}}">
-                <button type="submit" class="btn btn-primary col-3">Agregar</button>
-            </div>
-        </form>
+        </div>
     </div>
 
+    <script defer>
+        window.onload = function() {
+            CKEDITOR.replace('description', {
+                filebrowserUploadUrl: "{{route('ckeditor.upload', ['_token' => csrf_token() ])}}",
+                filebrowserUploadMethod: 'form'
+            });
+        };
+    </script>
+
+
 @endsection
+
+
+
+
+
+
 
 

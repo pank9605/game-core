@@ -1,28 +1,34 @@
 @extends('layouts.app')
 @section('title', 'Bienvenido a '.config('app.name'))
+
+
 @section('content')
     <!--Slider-->
     <div id="carousel1" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#carousel1" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel1" data-slide-to="1"></li>
-            <li data-target="#carousel1" data-slide-to="2"></li>
+            @for($i=0; $i < $featuredNews->count(); $i++)
+                @if($i==0)
+                    <li data-target="#carousel1" data-slide-to="{{$i}}" class="active"></li>
+                @else
+                    <li data-target="#carousel1" data-slide-to="{{$i}}"></li>
+                @endif
+            @endfor
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="img/1.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Nier Automata se posicion como el mejor en su Genero</h5>
-                    <p>Nier Automata logra superar a uno de los mejores videojuegos de la decada ...</p>
-                    <p><button class="btn btn-primary">Leer más ...</button></p>
+            @foreach($featuredNews as $key=>$item)
+                {{$active=""}}
+                @if($key ==0)
+                    {{$active= "active"}}
+                @endif
+                <div class="carousel-item {{$active}}">
+                    <img class="d-block w-100" src="{{$item->news_image_featured}}" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{$item->title}}</h5>
+                        <p>{{$item->news_introduction}}</p>
+                        <p><a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}" class="btn btn-primary">Leer más ...</a></p>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="img/2.jfif" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="img/3.jpg" alt="Third slide">
-            </div>
+            @endforeach
         </div>
         <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,46 +51,14 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-group list">
+                                @foreach($mobileSection as $mobile)
                                 <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
+                                    <img src="{{$mobile->news_image_featured}}" class="img-fluid" alt="{{$mobile->title}}">
+                                    <a class="item" href="{{url('/news/'.$mobile->category->name.'/'.$mobile->clasification->name.'/'.$mobile->id)}}">
+                                    {{$mobile->mobile_introduction}}
+                                    </a>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/nvidia.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -98,46 +72,20 @@
                         </div>
                         <div class="card-body">
                             <ul class="list-group list">
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
+                                @foreach($reviewSection as $review)
+                                <li class="list-group-item d-flex align-items-center ">
+                                    @if($review->calification > 79)
+                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#0000ff"></div>
+                                    @elseif($review->calification>49)
+                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#ff9800"></div>
+                                    @else
+                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#f44336"></div>
+                                    @endif
+                                        <a href="{{url('/news/'.$review->category->name.'/'.$review->clasification->name.'/'.$review->id)}}">
+                                        <h5>{{$review->title}}</h5>
+                                    </a>
                                 </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center ">
-                                    <img src="{{asset('img/tenor.gif')}}" class="img-fluid" alt="Responsive image">
-                                    Cras justo odio Cras justo odioCras justo odioCras justo justo odioCras justo...
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -147,20 +95,29 @@
             <div class="mt-5">
                 <div id="carousel2" class="carousel slide slider-border col-12 col-xl-11  m-auto" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carousel2" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel2" data-slide-to="1"></li>
-                        <li data-target="#carousel2" data-slide-to="2"></li>
+                        @for($i=0; $i< $featuredPcMobile->count(); $i++)
+                            @if($i==0)
+                                <li data-target="#carousel2" data-slide-to="{{$i}}" class="active"></li>
+                            @else
+                                <li data-target="#carousel2" data-slide-to="{{$i}}"></li>
+                            @endif
+                        @endfor
                     </ol>
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="img/1.jpg" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/2.jfif" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="img/3.jpg" alt="Third slide">
-                        </div>
+                        @foreach($featuredPcMobile as $key=>$items)
+                            {{$active=""}}
+                            @if($key ==0)
+                                {{$active="active"}}
+                            @endif
+                            <div class="carousel-item {{$active}}">
+                                <img class="d-block w-100" src="{{$items->news_image_featured}}" alt="First slide">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>{{$items->title}}</h5>
+                                    <p>{{$items->news_introduction}}</p>
+                                    <p><a href="{{url('/news/'.$items->category->name.'/'.$items->clasification->name.'/'.$items->id)}}" class="btn btn-primary">Leer más ...</a></p>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                     <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -183,7 +140,7 @@
             @foreach($news as $item)
                 <div class="row news-container col-11">
                 <div class="col-xl-4 align-self-center">
-                    <img src="{{$item->news_image_feature}}">
+                    <img src="{{$item->news_image_featured}}">
                 </div>
                 <div class="col-xl-8 justify-content-center">
                     <div class="news-title text-center mt-2">
@@ -191,26 +148,26 @@
                     </div>
                     <hr>
                     <div class="news-description text-justify">
-                        {!!$item->introduction!!}
+                        {!!$item->news_introduction!!}
                     </div>
 
                     <div class="justify-content-center col-xl-12 row p-0 m-0 mt-3">
                         <div class="col-6 news-date p-0">
                             <ul>
-                                <li>
-                                    Por: <a href="">{{$item->user->name}} </a><i class="fas fa-user-tie"></i>
+                                <li class="author">
+                                    Por: <a href="{{url('/author/'.$item->user->id)}}">{{$item->user->name}} </a><i class="fas fa-user-tie"></i>
                                 </li>
                                 <li>
-                                    Hora: {{$item->date}} <i class="fas fa-clock"></i>
+                                    Hora: {{substr($item->time,0,10)}} <i class="fas fa-clock"></i>
                                 </li>
                                 <li>
-                                    Fecha: {{$item->date}}
+                                    Fecha: {{substr($item->time,12,7)}}
                                     <i class="fas fa-calendar-alt"></i>
                                 </li>
                             </ul>
                         </div>
                         <div class="col-6 text-center align-self-center">
-                            <button class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</button>
+                            <a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}" class="btn btn-primary col-12"><i class="fas fa-plus"></i> Leer más...</a>
                         </div>
                     </div>
                 </div>

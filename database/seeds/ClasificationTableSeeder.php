@@ -13,10 +13,10 @@ class ClasificationTableSeeder extends Seeder
     public function run()
     {
         //
-        Clasification::create(array('name' => 'Noticia'));
-        Clasification::create(array('name' => 'Reseña'));
-        Clasification::create(array('name' => 'Especial'));
-        Clasification::create(array('name' => 'Podcast'));
-        Clasification::create(array('name' => 'Unboxing'));
+        Clasification::create(array('name' => 'Noticias','icon'=>'fas fa-newspaper'));
+        Clasification::create(array('name' => 'Reseñas','icon'=>'fas fa-quote-right'));
+        //Clasification::create(array('name' => 'Especiales','icon'=>'fas fa-heart'));
+        Clasification::create(array('name' => 'Podcast','icon'=>'fab fa-spotify'));
+        //Clasification::create(array('name' => 'Unboxings','icon'=>'fas fa-box-open'));
     }
 }

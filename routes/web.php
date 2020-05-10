@@ -13,43 +13,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'WelcomeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::post('news/ckeditor/upload', 'NewsController@upload')->name('upload');
-
-Route::get('/admin/founder', 'FoundersController@index');
-Route::get('/admin/founder/create','FoundersController@create');
-Route::post('/admin/founder/create','FoundersController@store'); //Nuevo Registro
-Route::get('/admin/founder/edit/{id}','FoundersController@show'); //Formulario para Editar Registro
-Route::post('/admin/founder/edit/{id}','FoundersController@update'); //Editar Registro
-
-
-Route::get('/news', 'NewsController@index');
-Route::get('/news/create', 'NewsController@create');
-Route::post('/news/create', 'NewsController@store');
-
-Route::get('/porfile/{id}','HomeController@show'); //Formulario para Perfil
-Route::post('/porfile/edit/{id}','HomeController@update'); //Editar Perfil
-
-
-
-Route::delete('/admin/founder/{id}/delete','FoundersController@destroy'); //Eliminar
-
-
-Route::get('/admin',function (){
-    return view('admin.index');
+Route::middleware(['auth','staff','username'])->prefix('staff/founder')->group(function (){
+    Route::get('/logs/users','Staff\LogsController@index'); //Table de Logs
+    Route::get('', 'Staff\FoundersController@index'); //Tabla de Fundadores
+    Route::get('/create','Staff\FoundersController@create'); //Formulario de Fundador
+    Route::post('/create','Staff\FoundersController@store'); //Registro de Fundador
+    Route::get('/edit/{id}','Staff\FoundersController@show'); //Formulario de Edicion de Fundador
+    Route::post('/edit/{id}','Staff\FoundersController@update'); //Editar Fundador
+    Route::delete('/{id}/delete','Staff\FoundersController@destroy'); //Eliminar Fundador
 });
 
+Route::middleware(['auth','staff','editor','username'])->prefix('staff')->group(function (){
 
-Route::get('/admin/news',function (){
-    return view('admin.news');
+    Route::get('/news', 'Staff\NewsController@index');
+    Route::get('/news/create', 'Staff\NewsController@create');
+    Route::post('/ckeditor/upload', 'Staff\NewsController@upload')->name('ckeditor.upload');
+    Route::post('/news/create', 'Staff\NewsController@store');
+
+    Route::get('/news/{id}/images', 'Staff\NewsImagesController@index');
+    Route::get('/news/{id}/edit', 'Staff\NewsController@edit'); //Formulario de Noticia
+    Route::post('/news/{id}/update', 'Staff\NewsController@update');// Actualizar Noticia
+    Route::get('/news/{id}/images/{image}/featured', 'Staff\NewsImagesController@imageFeatured');
+    Route::delete('/news/images/{id}/delete','Staff\NewsImagesController@destroy'); //Eliminar Imagen
+
+});
+
+Route::get('/porfile/{id}','HomeController@show'); //Formulario para Perfil
+Route::post('/porfile/{id}/edit/','HomeController@update'); //Editar Perfil
+
+Route::get('/news/{category}/{clasification}/{id}','WelcomeController@show'); //Noticia
+Route::get('/news/{category}','WelcomeController@showCategories'); //Noticia por Categoria
+
+Route::get('/author/{id}','AuthorController@show'); //Perfil del Autor
+
+
+Route::get('/porfile',function (){
+    return view('porfile    ');
 });

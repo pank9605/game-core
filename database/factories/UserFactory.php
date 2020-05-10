@@ -23,7 +23,7 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => $faker->name,
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'age' => $faker->numberBetween(12,60),
+        'birthdate' => $faker->date(),
         'gender' => $faker->randomElement(['Hombre','Mujer','Indefinido']),
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),

@@ -22,7 +22,7 @@ class CreateAddressesTable extends Migration
             $table->integer('outdoor_number')->nullable();
             $table->string('phone')->nullable();
             $table->string('cellphone')->nullable();
-            $table->string('post_code')->nullable();
+            $table->string('zip')->nullable();
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id')->nullable();

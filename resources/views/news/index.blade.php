@@ -1,75 +1,79 @@
 @extends('layouts.admin')
+@section('img-background')
+    <div class="page-header header-filter" data-parallax="true" style="background-image:url('{{asset('img/multi1.jpg')}}');"></div>
+@endsection
 @section('content')
-<div class="card">
-    <div class="card-header bg-dark text-light">
-        <div class="row">
-            <div class="col-6">
-                <h4 class="font-weight-bold">Noticias</h4>
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <div class="card-text">
+                    <h4 class="card-title float-left">Noticias</h4>
+                    <p class="category float-right m-0"><a href="{{url('staff/news/create')}}" class="btn btn-round btn-secondary"><i class="fas fa-plus"></i> Agregar</a></p>
+                </div>
             </div>
-            <div class="col-6">
-                <a href="{{url('/news/create')}}" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Agregar</a>
+            <div class="card-body">
+                @if (session('notification'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('notification') }}
+                    </div>
+                @elseif(session('notificationFaill'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('notificationFaill') }}
+                        </div>
+                @endif
+
+                <table class="table text-center table-bordered table-responsive-md table-responsive-xl table-responsive-lg">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col"><i class="fas fa-signature"></i> Titulo</th>
+                        <th scope="col"><i class="fas fa-quote-left"></i> Introducción</th>
+                        <th scope="col"><i class="fas fa-user-edit"></i> Autor</th>
+                        <th scope="col"><i class="fas fa-calendar-alt"></i> Fecha de Publicación</th>
+                        <th scope="col"><i class="fas fa-star"></i> Noticia Destacada</th>
+                        <th scope="col"><i class="fas fa-th-list"></i> Categoria</th>
+                        <th scope="col"><i class="fas fa-list"></i> Clasificación</th>
+                        <th scope="col"><i class="fas fa-images"></i> Imagenes</th>
+                        <th scope="col"><i class="fas fa-pen-alt"></i> Editar</th>
+                        <th scope="col"><i class="fas fa-trash-alt"></i> <!--<img src="">--> Eliminar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($news as $note)
+                        <tr>
+                            <th>{{$note->id}}</th>
+                            <td class="text-left">{{$note->title}}</td>
+                            <td style="max-width: 350px;" class="text-justify">{!!$note->news_introduction!!}</td>
+                            <td>{{$note->user->username}}</td>
+                            <td>{{$note->date}}</td>
+                            <td>
+
+                                @if($note->featured)
+                                    <i class="fas fa-newspaper text-warning"></i>
+                                @else
+                                    <i class="fas fa-newspaper"></i>
+                                @endif
+
+                            </td>
+                            <td>{{$note->category_name}}</td>
+                            <td>{{$note->clasification_name}}</td>
+                            <td><a href="{{url('staff/news/'.$note->id.'/images')}}" class="btn btn-warning"><i class="fas fa-image"></i></a></td>
+                            <td><a href="{{url('staff/news/'.$note->id.'/edit')}}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a></td>
+                            <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer-brand text-muted">
+                <ul class=" float-left justify-content-start">
+                    Total de noticias: {{$totalNews}}
+                </ul>
+                <ul class="float-right justify-content-end">
+                    {{$news->links()}}
+                </ul>
             </div>
         </div>
     </div>
-    @if (session('notification'))
-    <div class="alert alert-success" role="alert">
-        {{ session('notification') }}
-    </div>
-    @endif
-    <div class="card-body">
-        <table class="table text-center table-responsive">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col"><i class="fas fa-signature"></i> Titulo</th>
-                <th scope="col"><i class="fas fa-pencil-alt"></i> Descripción</th>
-                <th scope="col"><i class="fas fa-user-edit"></i> Autor</th>
-                <th scope="col"><i class="fas fa-calendar-alt"></i> Fecha de Publicación</th>
-                <th scope="col"><i class="fas fa-star"></i> Noticia Destacada</th>
-                <th scope="col"><i class="fas fa-th-list"></i> Categoria</th>
-                <th scope="col"><i class="fas fa-list"></i> Clasificación</th>
-                <th scope="col"><i class="fas fa-images"></i> Imagenes de la Noticia</th>
-                <th scope="col"><i class="fas fa-pen-alt"></i> Editar</th>
-                <th scope="col"><i class="fas fa-trash-alt"></i> Eliminar</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($news as $note)
-            <tr>
-                <th>{{$note->id}}</th>
-                <td class="text-left">{{$note->title}}</td>
-                <td class="text-justify">{!! $note->introduction !!}</td>
-                <td>{{$note->user->username}}</td>
-                <td>{{$note->date}}</td>
-                <td>
-                    @if($note->featured)
-                        <i class="fas fa-star text-warning"></i>
-                    @else
-                        <i class="far fa-star"></i>
-                    @endif
-
-                </td>
-                <td>{{$note->category}}</td>
-                <td>{{$note->clasification}}</td>
-                <td><button class="btn btn-warning"><i class="fas fa-image"></i></button></td>
-                <td><button class="btn btn-secondary"><i class="fas fa-pencil-alt"></i></button></td>
-                <td><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
-            </tr>
-            @endforeach
-
-            </tbody>
-        </table>
-    </div>
-    <div class="card-footer bg-dark text-light">
-
-        <nav aria-label="Page navigation example">
-            <ul class="pagination float-left justify-content-start">
-                Total de noticias: {{$totalNews}}
-            </ul>
-            <ul class="pagination justify-content-end">
-                {{$news->links()}}
-            </ul>
-        </nav>
-    </div>
-</div>
 @endsection

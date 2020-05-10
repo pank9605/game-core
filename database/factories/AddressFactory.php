@@ -16,7 +16,7 @@ $factory->define(Address::class, function (Faker $faker) {
         'phone' => $faker->phoneNumber,
         'cellphone' => $faker->phoneNumber,
         'city' => $faker->city,
-        'post_code' => $faker->postcode,
+        'zip' => $faker->postcode,
         'user_id' => $faker->unique()->numberBetween(1,50)
     ];
 });

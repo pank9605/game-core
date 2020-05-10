@@ -6,6 +6,7 @@ use App\NewsImage;
 use Faker\Generator as Faker;
 
 $factory->define(NewsImage::class, function (Faker $faker) {
+
     return [
         //
         'image' => $faker->imageUrl(1000,1000),

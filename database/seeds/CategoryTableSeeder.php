@@ -13,10 +13,11 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         //
-        Category::create(array('name' => 'Playstation'));
-        Category::create(array('name' => 'Xbox'));
-        Category::create(array('name' => 'Nintendo'));
-        Category::create(array('name' => 'PC'));
-        Category::create(array('name' => 'Movil'));
+        Category::create(array('name' => 'Playstation','icon'=>'fab fa-playstation'));
+        Category::create(array('name' => 'Xbox','icon'=>'fab fa-xbox'));
+        Category::create(array('name' => 'Nintendo','icon'=>'fas fa-gamepad'));
+        Category::create(array('name' => 'Multi Consola','icon'=>'fas fa-headset'));
+        Category::create(array('name' => 'PC','icon'=>'fab fa-steam'));
+        Category::create(array('name' => 'Movil','icon'=>'fas fa-mobile-alt'));
     }
 }

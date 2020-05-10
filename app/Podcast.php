@@ -1,0 +1,17 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Podcast extends Model
+{
+    //
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function clasification(){
+        return $this->belongsTo('App\Clasification');
+    }
+}

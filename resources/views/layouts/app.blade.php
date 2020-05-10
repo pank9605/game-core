@@ -8,10 +8,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title',config('app.name'))</title>
+    <link rel="shortcut icon" href="{{asset('img/coreblack.png')}}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/styles.js') }}" defer></script>
+    <script data-ad-client="ca-pub-5455720448748407" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" defer></script>
+    <script src="{{asset('js/Knob/js/jquery.knob.js')}}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,8 +27,9 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark position-fixed col-md-12 menu-container" id="menu">
-                <a class="navbar-brand" href="#">
-                    <img id="logo" src="/img/LogoClaro.png" height="40" alt="">
+                <a class="navbar-brand" href="{{url('/')}}">
+                    <img id="logo" src="{{asset('img/corewhite.png')}}" height="40" alt="Game Core">
+                    Game Core
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -33,39 +37,31 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <ul class="navbar-nav ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#"><i class="fas fa-home"></i> INICIO <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{url('/')}}"><i class="fas fa-home"></i> INICIO <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-list"></i> CATEGORIAS
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#"><i class="fab fa-playstation"></i> PLAYSTATION</a>
-                                <a class="dropdown-item" href="#"><i class="fab fa-xbox"></i> XBOX</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-gamepad"></i> NINTENDO</a>
-
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="fas fa-desktop"></i> PC</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-mobile-alt"></i>MOVIL</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-users"></i>MULTICONSOLA</a>
+                                @foreach($categories as $category)
+                                    <a class="dropdown-item" href="{{url('/news/'.$category->name)}}"><i class="{{$category->icon}}"></i>
+                                        {{$category->name}}</a>
+                                @endforeach
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="far fa-newspaper"></i> RESEÑAS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fab fa-soundcloud"></i> PODCAST</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-box"></i> UNBOXINGS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-heart"></i> ESPECIALES</a>
-                        </li>
+                        @foreach($clasifications as $clasification)
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/news/'.$clasification->name)}}"><i class="{{$clasification->icon}}"></i> {{$clasification->name}}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </nav>
         @yield('content')
     </div>
+
+@yield('js')
+
 </body>
 </html>

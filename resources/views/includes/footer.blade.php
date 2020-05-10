@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <h2 class="logo"><a href="#"> <img id="footer-logo" src="Img/LogoClaro.png" alt=""> </a></h2>
+                <h2 class="logo"><a href="#"> <img id="footer-logo" src="{{asset('img/LogoClaro.png')}}" alt=""> </a></h2>
             </div>
 
             <div class="col-sm-2">
@@ -32,7 +32,7 @@
             <div class="col-sm-3">
                 <div class="social-networks">
                     <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour" class="facebook"><i class="fab fa-facebook"></i></a>
                     <a href="#" class="google"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
