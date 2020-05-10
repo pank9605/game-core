@@ -20,10 +20,10 @@
                 @if($key ==0)
                     {{$active= "active"}}
                 @endif
-                <div class="carousel-item {{$active}}">
+                <div class="carousel-item carousel-item-principal {{$active}}">
                     <img class="d-block w-100" src="{{$item->news_image_featured}}" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>{{$item->title}}</h5>
+                    <div class="carousel-caption">
+                        <div class="title">{{$item->title}}</div>
                         <p>{{$item->news_introduction}}</p>
                         <p><a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}" class="btn btn-primary">Leer más ...</a></p>
                     </div>
@@ -75,11 +75,11 @@
                                 @foreach($reviewSection as $review)
                                 <li class="list-group-item d-flex align-items-center ">
                                     @if($review->calification > 79)
-                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#0000ff"></div>
+                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#28a745"></div>
                                     @elseif($review->calification>49)
-                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#ff9800"></div>
+                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#ffc107"></div>
                                     @else
-                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#f44336"></div>
+                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#dc3545"></div>
                                     @endif
                                         <a href="{{url('/news/'.$review->category->name.'/'.$review->clasification->name.'/'.$review->id)}}">
                                         <h5>{{$review->title}}</h5>
@@ -94,47 +94,49 @@
 
             <div class="mt-5">
                 <div id="carousel2" class="carousel slide slider-border col-12 col-xl-11  m-auto" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        @for($i=0; $i< $featuredPcMobile->count(); $i++)
-                            @if($i==0)
-                                <li data-target="#carousel2" data-slide-to="{{$i}}" class="active"></li>
-                            @else
-                                <li data-target="#carousel2" data-slide-to="{{$i}}"></li>
-                            @endif
-                        @endfor
-                    </ol>
-                    <div class="carousel-inner">
-                        @foreach($featuredPcMobile as $key=>$items)
-                            {{$active=""}}
-                            @if($key ==0)
-                                {{$active="active"}}
-                            @endif
-                            <div class="carousel-item {{$active}}">
-                                <img class="d-block w-100" src="{{$items->news_image_featured}}" alt="First slide">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>{{$items->title}}</h5>
-                                    <p>{{$items->news_introduction}}</p>
-                                    <p><a href="{{url('/news/'.$items->category->name.'/'.$items->clasification->name.'/'.$items->id)}}" class="btn btn-primary">Leer más ...</a></p>
+                    <div id="carousel1" class="carousel slide" data-ride="carousel2">
+                        <ol class="carousel-indicators">
+                            @for($i=0; $i < $featuredPcMobile->count(); $i++)
+                                @if($i==0)
+                                    <li data-target="#carousel2" data-slide-to="{{$i}}" class="active"></li>
+                                @else
+                                    <li data-target="#carousel2" data-slide-to="{{$i}}"></li>
+                                @endif
+                            @endfor
+                        </ol>
+                        <div class="carousel-inner">
+                            @foreach($featuredPcMobile as $key=>$item)
+                                {{$active=""}}
+                                @if($key ==0)
+                                    {{$active= "active"}}
+                                @endif
+                                <div class="carousel-item carousel-item-principal {{$active}}">
+                                    <img class="d-block w-100" src="{{$item->news_image_featured}}" alt="First slide">
+                                    <div class="carousel-caption">
+                                        <div class="title">{{$item->title}}</div>
+                                        <p>{{$item->news_introduction}}</p>
+                                        <p><a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}" class="btn btn-primary">Leer más ...</a></p>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                </div>
+                <div class="card-body col-11 col-lg-11 justify-content-center" id="search-content">
+                    <form class="form-inline justify-content-center">
+                        <i class="fas fa-search"></i><input type="text" class="form-control ml-3 col-11" id="search"  placeholder="Buscar...">
+                    </form>
                 </div>
             </div>
 
-            <div class="card-body col-11 col-lg-11 justify-content-center" id="search-content">
-                <form class="form-inline justify-content-center">
-                    <i class="fas fa-search"></i><input type="text" class="form-control ml-3 col-11" id="search"  placeholder="Buscar...">
-                </form>
-            </div>
 
 
             @foreach($news as $item)
