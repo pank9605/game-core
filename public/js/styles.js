@@ -12,10 +12,12 @@ function menuResize(){
     console.log(width);
     if (width >= 1200) {
         //scrollXl();
-        $("#carousel1").css('padding-top','0px');
+        $("#carousel1").css('margin-top','0px');
+        $("#carousel1").css('float','none');
 
     } else if(width < 1200){
-        $("#carousel1").css('padding-top','74px');
+        $("#carousel1").css('margin-top','74px');
+        $("#carousel1").css('float','left');
         //scrollSm();
     }
 }
@@ -54,7 +56,7 @@ $(window).scroll(function() {
                 queue: false,
             });
 
-            $("#carousel1").css('padding-top','60px');
+            $("#carousel1").css('margin-top','60px');
         } else {
             $("#menu").css('background','rgba(0, 0, 0, 0.7)');
 
@@ -66,7 +68,7 @@ $(window).scroll(function() {
             });
 
             $("#carousel1").animate({
-                paddingTop: "74px",
+                marginTop: "74px",
 
             },{
                 queue: false,

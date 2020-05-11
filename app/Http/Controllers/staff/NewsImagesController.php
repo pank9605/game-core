@@ -60,9 +60,9 @@ class NewsImagesController extends Controller
             if (substr($image->image, 0, 4) == "http") {
                 $deleted = true;
             } else {
-                $images = File::files(public_path() . '/images/news_images');
+                $images = File::files(public_path() . '/storage/images/news_images');
 
-                $fullPath = public_path() . '/images/news_images/' . $image->image;
+                $fullPath = public_path() . '/storage/images/news_images/' . $image->image;
                 foreach ($images as $key => $img) {
                     if ($image->image == pathinfo($img)['basename']) {
                         $deleted = File::delete($fullPath);

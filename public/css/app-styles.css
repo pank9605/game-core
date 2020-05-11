@@ -109,6 +109,12 @@
     padding: 10px;
 }
 
+.news-info{
+    letter-spacing: 2px;
+}
+
+
+
 @supports(object-fit: cover){
     .news-container img{
         height: 100%;
@@ -254,6 +260,11 @@
 /*News*/
 .news-item-container{
     padding-top: 110px !important;
+}
+
+.author{
+    text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 /*Categories and Clasifications*/

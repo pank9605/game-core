@@ -33,7 +33,7 @@ class News extends Model
             $introduction .= $words[$i].' ';
         }*/
         $description = $this->introduction;
-        $introduction = substr($description,0,300).'...';
+        $introduction = substr($description,0,500).'...';
         return $introduction;
     }
 
@@ -74,19 +74,19 @@ class News extends Model
         if (!$featuredImage){
             $featuredImage = $this->images()->first();
             if ($featuredImage == null){
-                return '/images/news_images/default.jpeg';
+                return '/storage/images/news_images/default.jpeg';
             }else{
                 if (substr($featuredImage->image,0,4)==="http"){
                     return $featuredImage->image;
                 }else{
-                    return '/images/news_images/'.$featuredImage->image;
+                    return '/storage/images/news_images/'.$featuredImage->image;
                 }
             }
         }else{
             if (substr($featuredImage->image,0,4) === "http"){
                 return $featuredImage->image;
             }else{
-                return '/images/news_images/'.$featuredImage->image;
+                return '/storage/images/news_images/'.$featuredImage->image;
             }
         }
     }

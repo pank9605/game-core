@@ -28,7 +28,7 @@ class NewsController extends Controller
             $image = new NewsImage();
             $file = $request->file('upload');
             $fileName = uniqid() . '-' . $file->getClientOriginalName(); //Renombrar la Imagen
-            $path = public_path('images/news_images/'. $fileName);
+            $path = public_path('storage/images/news_images/'. $fileName);
 
             $imageSave = Image::make($file->getRealPath())
                 ->resize(1280,720)->fill()->save($path,72);
@@ -44,7 +44,7 @@ class NewsController extends Controller
                 //session($name)->push($image);
                 session()->push($name, $image);
                 $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-                $url = '/images/news_images/'.$fileName;
+                $url = '/storage/images/news_images/'.$fileName;
                 $msg = 'Image cargada correctamente'.$fileName;
                 $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
 
