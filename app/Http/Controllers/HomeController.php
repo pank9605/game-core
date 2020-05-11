@@ -6,7 +6,7 @@ use App\News;
 use App\User;
 use File;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 
 class HomeController extends Controller
@@ -93,11 +93,15 @@ class HomeController extends Controller
                     if ($deleted) {
                         //Guardar la imagen en nuestro Proyecto
                         $file = $request->file('cover_image');
-                        $path = public_path() . '/images/cover_images';
                         $fileName = uniqid() . '-' . $file->getClientOriginalName(); //Renombrar la Imagen
-                        $moved = $file->move($path, $fileName);
+                        $path = public_path('images/cover_images/'. $fileName);
+
+                        $imageSave = Image::make($file->getRealPath())
+                            ->resize(1280,720)->fill();
+
+
                         //Crear 1 registro en la tabla de users
-                        if ($moved) {
+                        if ($imageSave->save($path,72)) {
                             $user->cover_image = $fileName;
                         }
                     }
@@ -105,11 +109,15 @@ class HomeController extends Controller
             }else{
                 //Guardar la imagen en nuestro Proyecto
                 $file = $request->file('cover_image');
-                $path = public_path() . '/images/cover_images';
                 $fileName = uniqid() . '-' . $file->getClientOriginalName(); //Renombrar la Imagen
-                $moved = $file->move($path, $fileName);
+                $path = public_path('images/cover_images/'. $fileName);
+
+                $imageSave = Image::make($file->getRealPath())
+                    ->resize(1280,720)->fill();
+
+
                 //Crear 1 registro en la tabla de users
-                if ($moved) {
+                if ($imageSave->save($path,72)) {
                     $user->cover_image = $fileName;
                 }
             }
@@ -135,23 +143,34 @@ class HomeController extends Controller
                     if ($deleted) {
                         //Guardar la imagen en nuestro Proyecto
                         $file = $request->file('porfile_image');
-                        $path = public_path() . '/images/porfile_images';
+
                         $fileName = uniqid() . '-' . $file->getClientOriginalName(); //Renombrar la Imagen
-                        $moved = $file->move($path, $fileName);
+                        $path = public_path('images/porfile_images/'. $fileName);
+
+                        $imageSave = Image::make($file->getRealPath())
+                            ->resize(1280,720)->fill();
+
+
                         //Crear 1 registro en la tabla de users
-                        if ($moved) {
+                        if ($imageSave->save($path,72)) {
                             $user->porfile_image = $fileName;
                         }
                     }
                 }
             }else{
                 //Guardar la imagen en nuestro Proyecto
+
+
                 $file = $request->file('porfile_image');
-                $path = public_path() . '/images/porfile_images';
                 $fileName = uniqid() . '-' . $file->getClientOriginalName(); //Renombrar la Imagen
-                $moved = $file->move($path, $fileName);
+                $path = public_path('images/porfile_images/'. $fileName);
+
+                $imageSave = Image::make($file->getRealPath())
+                    ->resize(1280,720)->fill();
+
+
                 //Crear 1 registro en la tabla de users
-                if ($moved) {
+                if ($imageSave->save($path,72)) {
                     $user->porfile_image = $fileName;
                 }
             }

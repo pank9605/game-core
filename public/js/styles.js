@@ -16,7 +16,7 @@ function menuResize(){
         $("#carousel1").css('float','none');
 
     } else if(width < 1200){
-        $("#carousel1").css('margin-top','74px');
+        $("#carousel1").css('margin-top','10px');
         $("#carousel1").css('float','left');
         //scrollSm();
     }

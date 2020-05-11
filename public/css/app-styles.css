@@ -1,11 +1,10 @@
-#principal-container{
-    width: 100%;
-}
+
 .menu-container{
     z-index: 999;
     background-color: rgba(0, 0, 0, 0.7);
     padding-top:12px;
     padding-bottom: 12px;
+    width: 100%;
 }
 
 .carousel-item-principal {
@@ -32,8 +31,6 @@
         font-size: 15px;
         font-weight: bold;
     }
-
-
 }
 
 .carousel-indicators li {
@@ -42,9 +39,7 @@
     border-radius: 100%;
 }
 
-#carousel2{
 
-}
 
 
 #search-content{
@@ -112,7 +107,6 @@
 .news-info{
     letter-spacing: 2px;
 }
-
 
 
 @supports(object-fit: cover){

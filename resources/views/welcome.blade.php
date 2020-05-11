@@ -173,7 +173,7 @@
                             </ul>
                         </div>
                         <div class="col-6 text-center align-self-center">
-                            <a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}" class="btn btn-primary col-12 col-xl-6"><i class="fas fa-plus"></i> Leer más...</a>
+                            <a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}" class="btn btn-primary col-12 col-xl-6 readnews"><i class="fas fa-plus"></i> Leer</a>
                         </div>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
             @endforeach
 
             <nav aria-label="Page navigation example">
-                <ul class="pagination pagination-lg justify-content-center">
+                <ul class="pagination justify-content-center">
                     {{$news->links()}}
                 </ul>
             </nav>
