@@ -12,12 +12,10 @@ function menuResize(){
     console.log(width);
     if (width >= 1200) {
         //scrollXl();
-        $("#carousel1").css('margin-top','0px');
-        $("#carousel1").css('float','none');
+        $("#carousel1").css('padding-top','0px');
 
     } else if(width < 1200){
-        $("#carousel1").css('margin-top','10px');
-        $("#carousel1").css('float','left');
+        $("#carousel1").css('padding-top','74px');
         //scrollSm();
     }
 }
@@ -56,7 +54,7 @@ $(window).scroll(function() {
                 queue: false,
             });
 
-            $("#carousel1").css('margin-top','60px');
+            $("#carousel1").css('padding-top','60px');
         } else {
             $("#menu").css('background','rgba(0, 0, 0, 0.7)');
 
@@ -68,7 +66,7 @@ $(window).scroll(function() {
             });
 
             $("#carousel1").animate({
-                marginTop: "74px",
+                paddingTop: "74px",
 
             },{
                 queue: false,
@@ -77,6 +75,69 @@ $(window).scroll(function() {
     }
 
 });
+
+/*function scrollXl(){
+    alert("scrollXl");
+    $(window).scroll(function() {
+        if ($("#menu").offset().top > 90) {
+            $("#menu").css('background','rgba(0, 0, 0, 0.9)');
+            $("#menu").animate({
+                paddingTop: "5px",
+                paddingBottom: "5px",
+            },{
+                queue: false,
+            });
+        } else {
+            $("#menu").css('background','rgba(0, 0, 0, 0.7)');
+
+            $("#menu").animate({
+                paddingTop: "12px",
+                paddingBottom: "12px",
+            },{
+                queue: false,
+            });
+
+        }
+    });
+}
+
+
+function scrollSm(){
+    alert("scrollSm");
+    $(window).scroll(function() {
+        if ($("#menu").offset().top > 90) {
+            $("#menu").css('background','rgba(0, 0, 0, 0.9)');
+
+            $("#menu").animate({
+                paddingTop: "5px",
+                paddingBottom: "5px",
+
+            },{
+                queue: false,
+            });
+
+            $("#carousel1").css('padding-top','60px');
+        } else {
+            $("#menu").css('background','rgba(0, 0, 0, 0.7)');
+
+            $("#menu").animate({
+                paddingTop: "12px",
+                paddingBottom: "12px",
+            },{
+                queue: false,
+            });
+
+            $("#carousel1").animate({
+                paddingTop: "74px",
+
+            },{
+                queue: false,
+            });
+        }
+    });
+}*/
+
+
 
 $(function() {
     $(".dial").knob({
