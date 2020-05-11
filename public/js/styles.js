@@ -1,31 +1,93 @@
-$(window).scroll(function() {
-    if ($("#menu").offset().top > 90) {
-        $("#menu").css('background','rgba(0, 0, 0, 0.9)');
 
-        $("#menu").animate({
-            paddingTop: "5px",
-            paddingBottom: "5px",
+$(function () {
+    menuResize();
+});
 
-        },{
-            queue: false,
-        });
+$(window).resize(function () {
+   menuResize();
+});
 
-    } else {
-        $("#menu").css('background','rgba(0, 0, 0, 0.7)');
+function menuResize(){
+    var width = $(window).width();
+    console.log(width);
+    if (width >= 1200) {
+        //scrollXl();
+        $("#carousel1").css('padding-top','0px');
 
-        $("#menu").animate({
-            paddingTop: "12px",
-            paddingBottom: "12px",
-        },{
-            queue: false,
-        });
-
+    } else if(width < 1200){
+        $("#carousel1").css('padding-top','74px');
+        //scrollSm();
     }
+}
+
+$(window).scroll(function() {
+    var width = $(window).width();
+    if (width >= 1200){
+        if ($("#menu").offset().top > 70) {
+            $("#menu").css('background','rgba(0, 0, 0, 0.9)');
+            $("#menu").animate({
+                paddingTop: "5px",
+                paddingBottom: "5px",
+            },{
+                queue: false,
+            });
+        } else {
+            $("#menu").css('background','rgba(0, 0, 0, 0.7)');
+
+            $("#menu").animate({
+                paddingTop: "12px",
+                paddingBottom: "12px",
+            },{
+                queue: false,
+            });
+
+        }
+    }else{
+        if ($("#menu").offset().top > 70) {
+            $("#menu").css('background','rgba(0, 0, 0, 0.9)');
+
+            $("#menu").animate({
+                paddingTop: "5px",
+                paddingBottom: "5px",
+
+            },{
+                queue: false,
+            });
+
+            $("#carousel1").css('padding-top','60px');
+        } else {
+            $("#menu").css('background','rgba(0, 0, 0, 0.7)');
+
+            $("#menu").animate({
+                paddingTop: "12px",
+                paddingBottom: "12px",
+            },{
+                queue: false,
+            });
+
+            $("#carousel1").animate({
+                paddingTop: "74px",
+
+            },{
+                queue: false,
+            });
+        }
+    }
+
+});
+
+$(function() {
+    $(".dial").knob({
+        'min':0,
+        'max':100,
+        'width':40,
+        'height':40
+    });
 });
 
 
 
-window.onload = function ()  {
+/*window.onload = function ()  {
     $("#sidebar").mCustomScrollbar({
         theme: "minimal"
     });
@@ -42,20 +104,7 @@ window.onload = function ()  {
         $('a[aria-expanded=true]').attr('aria-expanded', 'false');
     });
 
-};
-
-$(function() {
-    $(".dial").knob({
-        'min':0,
-        'max':100,
-        'width':40,
-        'height':40
-    });
-});
-
-
-
-
+};*/
 
 
 

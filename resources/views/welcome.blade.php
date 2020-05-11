@@ -20,14 +20,17 @@
                 @if($key ==0)
                     {{$active= "active"}}
                 @endif
+
                 <div class="carousel-item carousel-item-principal {{$active}}">
+                    <a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}">
                     <img class="d-block w-100" src="{{$item->news_image_featured}}" alt="First slide">
                     <div class="carousel-caption">
                         <div class="title">{{$item->title}}</div>
                         <p>{{$item->news_introduction}}</p>
-                        <p><a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}" class="btn btn-primary">Leer más ...</a></p>
                     </div>
+                    </a>
                 </div>
+
             @endforeach
         </div>
         <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
@@ -44,7 +47,34 @@
     <div class="row col-12 m-0 p-0">
         <div class="col-12 col-lg-9">
             <div class="row justify-content-center mt-5">
-                <div class="col-12 col-xl-5 mr-0 mr-xl-4">
+
+                <div class="col-12 col-xl-5">
+                    <div class="card card-border ml-0 ml-xl-4">
+                        <div class="card-header text-center">
+                            <h3><i class="fas fa-newspaper"></i> Reseñas</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list">
+                                @foreach($reviewSection as $review)
+                                    <li class="list-group-item d-flex align-items-center ">
+                                        @if($review->calification > 79)
+                                            <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#28a745"></div>
+                                        @elseif($review->calification>49)
+                                            <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#ffc107"></div>
+                                        @else
+                                            <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#dc3545"></div>
+                                        @endif
+                                        <a href="{{url('/news/'.$review->category->name.'/'.$review->clasification->name.'/'.$review->id)}}">
+                                            <h5>{{$review->title}}</h5>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-xl-5 mr-0 mr-xl-4 mt-5 mt-xl-0">
                     <div class="card card-border">
                         <div class="card-header text-center">
                             <h3><i class="fas fa-mobile"></i> Movil</h3>
@@ -64,32 +94,6 @@
                     </div>
                 </div>
 
-
-                <div class="col-12 col-xl-5">
-                    <div class="card card-border ml-0 ml-xl-4 mt-5 mt-xl-0">
-                        <div class="card-header text-center">
-                            <h3><i class="fas fa-newspaper"></i> Reseñas</h3>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group list">
-                                @foreach($reviewSection as $review)
-                                <li class="list-group-item d-flex align-items-center ">
-                                    @if($review->calification > 79)
-                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#28a745"></div>
-                                    @elseif($review->calification>49)
-                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#ffc107"></div>
-                                    @else
-                                        <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#dc3545"></div>
-                                    @endif
-                                        <a href="{{url('/news/'.$review->category->name.'/'.$review->clasification->name.'/'.$review->id)}}">
-                                        <h5>{{$review->title}}</h5>
-                                    </a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="mt-5">
@@ -111,12 +115,13 @@
                                     {{$active= "active"}}
                                 @endif
                                 <div class="carousel-item carousel-item-principal {{$active}}">
-                                    <img class="d-block w-100" src="{{$item->news_image_featured}}" alt="First slide">
-                                    <div class="carousel-caption">
-                                        <div class="title">{{$item->title}}</div>
-                                        <p>{{$item->news_introduction}}</p>
-                                        <p><a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}" class="btn btn-primary">Leer más ...</a></p>
-                                    </div>
+                                    <a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}">
+                                        <img class="d-block w-100" src="{{$item->news_image_featured}}" alt="First slide">
+                                        <div class="carousel-caption">
+                                            <div class="title">{{$item->title}}</div>
+                                            <p>{{$item->news_introduction}}</p>
+                                        </div>
+                                    </a>
                                 </div>
                             @endforeach
                         </div>
