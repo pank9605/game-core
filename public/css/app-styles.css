@@ -68,6 +68,19 @@
     height: 300px;
 }
 
+.list a{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.list a:hover{
+    cursor: pointer;
+    color: #00a5bb;
+}
+
+
+
 .calification{
     margin-right: 15px !important;
 }

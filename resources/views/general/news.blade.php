@@ -5,13 +5,13 @@
         <div class="blog-header">
             <div class="container">
                 <h1 class="blog-title">{{$news->title}}</h1>
-                <p class="lead blog-description">Subtitulo o frase</p>
+                {{--<p class="lead blog-description">Subtitulo o frase</p>--}}
             </div>
         </div>
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-8 blog-main">
+                <div class="col-lg-8 blog-main">
 
                     <div class="blog-post">
                         <p class="blog-post-meta">{{$news->date}} por <a href="#">{{$news->user->username}}</a></p>
@@ -20,18 +20,23 @@
                         <hr>
                         <img src="{{$news->news_image_featured}}" class="img-thumbnail" alt="Responsive image">
                         <hr>
-
                         {!!$news->description!!}
-
                         <hr>
-                        &nbsp;
+                        @if($news->calification != null)
+                        <div class="col-12 mt-4 mb-5 calification-content text-right">
+                            <li class="row  justify-content-center text-sm-right text-center">
+                                <label class="col align-self-center"><h1>Puntuación</h1></label>
+                                <input type="text" name="calification" value="{{$news->calification}}" class="show-calification">
+                            </li>
+                        </div>
+                        @endif
                     </div><!-- /.blog-post -->
                 </div><!-- /.blog-main -->
 
 
                 <!-- BARRA LATERAL -->
 
-                <div class="col-sm-3 offset-sm-1 blog-sidebar">
+                <div class="col-lg-3 offset-sm-1 blog-sidebar">
                     <div class="sidebar-module sidebar-module-inset">
                         <h4>Acerca de</h4>
                         <p class="text-justify">{{$news->about}}</p>
