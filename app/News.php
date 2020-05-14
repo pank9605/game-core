@@ -6,10 +6,13 @@ use Carbon\Carbon;
 use Carbon\CarbonImmutable;
 use App\Category;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class News extends Model
 {
     //
+    use SoftDeletes;
+
     public function category(){
         return $this->belongsTo('App\Category');
     }
@@ -65,7 +68,8 @@ class News extends Model
     }
 
     public function getDateAttribute(){
-        return date("d-m-Y H:i",strtotime($this->publish_date));
+        return date("d-m-Y H:i:s a",strtotime($this->updated_at));
+        //return date("d-m-Y H:i",strtotime($this->publish_date));
     }
 
     public function getNewsImageFeaturedAttribute(){
@@ -89,10 +93,6 @@ class News extends Model
                 return '/images/news_images/'.$featuredImage->image;
             }
         }
-    }
-
-    public function getTimeAttribute(){
-        return date("d-m-Y H:i a",strtotime($this->publish_date));
     }
 
 }

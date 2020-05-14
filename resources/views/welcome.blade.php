@@ -164,11 +164,15 @@
                                     <small><a href="{{url('/author/'.$item->user->id)}}">{{$item->user->username}} </a><i class="fas fa-user-tie"></i></small>
                                 </li>
                                 <li>
-                                    <small>{{substr($item->time,0,10)}} <i class="fas fa-clock"></i></small>
+                                    <small>{{substr($item->date,0,10)}} <i class="fas fa-calendar-alt"></i></small>
+
                                 </li>
                                 <li>
-                                    {{substr($item->time,12,7)}}
-                                    <small><i class="fas fa-calendar-alt"></i></small>
+                                    <small>
+                                        {{substr($item->date,11,8)}} <i class="fas fa-clock"></i>
+                                    </small>
+
+
                                 </li>
                             </ul>
                         </div>

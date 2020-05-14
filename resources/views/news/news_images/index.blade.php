@@ -20,7 +20,8 @@
                 </div>
             @endif
             <div class="row justify-content-center">
-                @foreach($images as $image )
+                @if($images != null)
+                    @foreach($images as $image )
                     <div class="col-12 col-lg-4 col-xl-4">
                         <div class="card justify-content-center">
                             <div class="card-body">
@@ -43,6 +44,9 @@
                         </div>
                     </div>
                 @endforeach
+                @else
+                    <h3>No hay Imagenes para esta noticia</h3>
+                @endif
             </div>
         </div>
     </div>

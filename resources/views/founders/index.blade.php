@@ -23,7 +23,7 @@
                     </div>
                 @endif
 
-                    <table class="table text-center table-bordered table-responsive-lg">
+                    <table class="table text-center table-bordered table-responsive table-responsive-sm table-responsive-md table-responsive-xl table-responsive-lg">
                         <thead>
                         <tr>
                             <th scope="col">#</th>

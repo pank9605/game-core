@@ -8,8 +8,7 @@
         <div class="card">
             <div class="card-header card-header-primary">
                 <div class="card-text">
-                    <h4 class="card-title float-left">Logs de Usuarios</h4>
-                    <p class="category float-right m-0"><a href="{{url('/admin/founder/create')}}" class="btn btn-round btn-secondary float-right"><i class="fas fa-plus"></i> Agregar</a></p>
+                    <h4 class="card-title">Log de Usuarios</h4>
                 </div>
             </div>
             <div class="card-body">

@@ -79,15 +79,15 @@ class FoundersController extends Controller
     public function show($id)
     {
         //
-        $founder = User::find($id);
-        $address = $founder->address;
-        return view('founders.edit')->with(compact('founder','address'));
     }
 
 
     public function edit($id)
     {
         //
+        $founder = User::find($id);
+        $address = $founder->address;
+        return view('founders.edit')->with(compact('founder','address'));
 
     }
 

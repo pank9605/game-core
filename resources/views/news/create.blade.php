@@ -16,20 +16,20 @@
                     <div class="card-body">
                         @csrf
                         <div class="row">
-                            <div class="col-9 form-group">
+                            <div class="col-12 col-xl-9 form-group">
                                 <textarea name="description"></textarea>
                             </div>
-                            <div class="form-row col-3">
-                                <div class="form-group col-12">
+                            <div class="form-row col-12 col-xl-3">
+                                <div class="form-group mt-4 col-12">
                                     <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Titulo de la Noticia">
                                 </div>
 
-                                <div class="form-group col-12">
+                                <div class="form-group mt-2 col-12">
                                     <label for="exampleFormControlTextarea1">Introducción de la noticia</label>
                                     <textarea class="form-control" name="introduction" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
 
-                                <div class="col-12 form-group">
+                                <div class="col-12 mt-4 form-group">
                                     <select class="form-control selectpicker" name="category">
                                         <option>Seleccione una Categoría</option>
                                         @foreach($categories as $category)
@@ -38,8 +38,8 @@
                                     </select>
                                 </div>
 
-                                <div class="col-12 form-group">
-                                    <select class="form-control selectpicker" name="clasification">
+                                <div class="col-12 mt-4 form-group">
+                                    <select class="form-control selectpicker" name="clasification" id="clasification">
                                         <option>Seleccione una Clasificación</option>
                                         @foreach($clasifications as $clasification)
                                             <option>{{$clasification->name}}</option>
@@ -47,27 +47,27 @@
                                     </select>
                                 </div>
 
-                                <div class="col-12">
-                                    <input class="form-control" type="datetime-local" name="publish_date" value="{{$date}}">
+                                    <div class="col-12 mt-4 featured-content">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="checkbox" name="featured" >
+                                                Destacar Noticia
+                                                <span class="form-check-sign">
+                                                      <span class="check"></span>
+                                                  </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mt-4  calification-content">
+                                        <input type="text" name="calification" class="calification" id="calification">
+                                    </div>
                                 </div>
-
-
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" name="featured" >
-                                        Destacar Noticia
-                                        <span class="form-check-sign">
-                                              <span class="check"></span>
-                                          </span>
-                                    </label>
-                                </div>
-
                             </div>
                         </div>
-
                     </div>
                     <div class="footer text-center">
-                        <button type="submit" class="btn btn-primary col-3">Agregar</button>
+                        <button type="submit" class="btn btn-primary">Agregar</button>
                     </div>
                 </form>
             </div>

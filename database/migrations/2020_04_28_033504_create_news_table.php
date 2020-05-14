@@ -20,8 +20,8 @@ class CreateNewsTable extends Migration
             $table->text('about')->nullable();
             $table->longText('description');
             $table->integer('calification')->nullable();
-            $table->timestamp('publish_date');
             $table->boolean('featured')->default(false);
+            $table->softDeletes();
 
             //FK
             $table->unsignedBigInteger('user_id')->nullable();

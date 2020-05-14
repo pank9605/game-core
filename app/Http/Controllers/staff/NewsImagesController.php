@@ -14,9 +14,25 @@ class NewsImagesController extends Controller
     {
         //
         $news = News::find($id);
-        $images = $news->images()->orderBy('featured','desc')->get();
 
-        return view('news.news_images.index')->with(compact('images','news'));
+        if ($news == null ){
+            $news = News::onlyTrashed()
+                ->where('id', $id)
+                ->first();
+            if ($news == null){
+                return back();
+            }else{
+                $images = $news->images()->orderBy('featured','desc')->get();
+
+                return view('news.news_images.index')->with(compact('images','news'));
+            }
+        }else{
+            $images = $news->images()->orderBy('featured','desc')->get();
+
+            return view('news.news_images.index')->with(compact('images','news'));
+        }
+
+
     }
 
     public function create()

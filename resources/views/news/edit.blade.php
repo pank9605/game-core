@@ -39,7 +39,7 @@
                                 </div>
 
                                 <div class="col-12 form-group">
-                                    <select class="form-control selectpicker" name="clasification">
+                                    <select class="form-control selectpicker" name="clasification" id="clasification">
                                         <option>Seleccione una Clasificación</option>
                                         <option selected>{{$news->clasification->name}}</option>
                                         @foreach($clasificationSelected as $clasification)
@@ -48,24 +48,24 @@
                                     </select>
                                 </div>
 
-                                <div class="col-12 text-left">
-                                    <label for="exampleFormControlTextarea1">Fecha de Publicación</label>
-                                    <input class="form-control" type="datetime-local" name="publish_date" value="{{old('publish_date',$date)}}">
+                                <div class="col-12 mt-4 d-none featured-content">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            @if($news->featured)
+                                                <input class="form-check-input" type="checkbox" name="featured" checked {{ old('featured') == 'on' ? 'checked' : '' }}>
+                                            @else
+                                                <input class="form-check-input" type="checkbox" name="featured" {{ old('featured') == 'on' ? 'checked' : '' }}>
+                                            @endif
+                                            Destacar Noticia
+                                            <span class="form-check-sign">
+                                                  <span class="check"></span>
+                                              </span>
+                                        </label>
+                                    </div>
                                 </div>
 
-
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        @if($news->featured)
-                                            <input class="form-check-input" type="checkbox" name="featured" checked {{ old('featured') == 'on' ? 'checked' : '' }}>
-                                        @else
-                                            <input class="form-check-input" type="checkbox" name="featured" {{ old('featured') == 'on' ? 'checked' : '' }}>
-                                        @endif
-                                        Destacar Noticia
-                                        <span class="form-check-sign">
-                                              <span class="check"></span>
-                                          </span>
-                                    </label>
+                                <div class="col-12 mt-4 d-none calification-content">
+                                    <input type="text" name="calification" value="{{$news->calification}}" class="calification" id="calification">
                                 </div>
 
                             </div>

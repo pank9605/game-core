@@ -15,6 +15,7 @@
     <script src="{{ asset('js/styles.js') }}" defer></script>
     <script data-ad-client="ca-pub-5455720448748407" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" defer></script>
     <script src="{{asset('js/Knob/js/jquery.knob.js')}}" defer></script>
+    <script src="{{ asset('js/Knob/config.js')}}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

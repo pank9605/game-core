@@ -139,17 +139,6 @@ function scrollSm(){
 
 
 
-$(function() {
-    $(".dial").knob({
-        'min':0,
-        'max':100,
-        'width':40,
-        'height':40
-    });
-});
-
-
-
 /*window.onload = function ()  {
     $("#sidebar").mCustomScrollbar({
         theme: "minimal"

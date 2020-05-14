@@ -11,7 +11,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Session;
 use Intervention\Image\ImageManagerStatic as Image;
-
+use File;
 class NewsController extends Controller
 {
     public function upload(Request $request)
@@ -74,26 +74,40 @@ class NewsController extends Controller
         return view('news.create')->with(compact('categories','clasifications','date'));
     }
 
-
     public function store(Request $request)
     {
         //
         $news = new News();
         $category = Category::where('name',$request->input('category'))->first();
         $clasification = Clasification::where('name',$request->input('clasification'))->first();
-        $news->title = $request->input('title');
-        $news->description = $request->input('description');
-        $date = $request->input('publish_date');
-        $news->publish_date = date("Y-m-d H:i:s",strtotime($date));
-        if ($request->input('featured')!=null){
-            $news->featured = true;
+
+        if ($request->input('clasification') == "Noticias"){
+            $news->calification = null;
+            if ($request->input('featured')!=null){
+                $news->featured = true;
+            }else{
+                $news->featured = false;
+            }
         }else{
             $news->featured = false;
+            $news->calification = null;
         }
+
+        if ($request->input('clasification') == "Reseñas"){
+            $news->calification = $request->input('calification');
+        }else{
+            $news->calification = null;
+        }
+
+        $news->title = $request->input('title');
+        $news->description = $request->input('description');
+
         $news->category_id= $category->id;
         $news->clasification_id =$clasification->id;
+
         $news->introduction = $request->input('introduction');
         $news->user_id = auth()->user()->id;
+
         $news->save();
         $emailAuthor = auth()->user()->email;
         if (session($emailAuthor)){
@@ -126,7 +140,7 @@ class NewsController extends Controller
     {
         //
         $news = News::find($id);
-        $date = date('Y-m-d\TH:i',strtotime($news->publish_date));
+        $date = date('Y-m-d\TH:i',strtotime($news->updated_at));
         $categories = Category::all();
         $clasifications = Clasification::all();
         $clasificationSelected = collect();
@@ -154,16 +168,30 @@ class NewsController extends Controller
         $category = Category::where('name',$request->input('category'))->first();
         $clasification = Clasification::where('name',$request->input('clasification'))->first();
 
+
+        if ($request->input('clasification') == "Noticias"){
+            $news->calification = null;
+            if ($request->input('featured')!=null){
+                $news->featured = true;
+            }else{
+                $news->featured = false;
+            }
+        }else{
+            $news->featured = false;
+            $news->calification = null;
+        }
+
+        if ($request->input('clasification') == "Reseñas"){
+            $news->calification = $request->input('calification');
+        }else{
+            $news->calification = null;
+        }
+
         $news->title = $request->input('title');
         $news->introduction = $request->input('introduction');
         $news->category_id= $category->id;
-        $news->clasification_id =$clasification->id;
-        $news->publish_date = date("Y-m-d H:i:s",strtotime($request->input('publish_date')));
-        $featured = false;
-        if ($request->input('featured') != null){
-            $featured = true;
-        }
-        $news->featured = $featured;
+        $news->clasification_id= $clasification->id;
+
         $news->description = $request->input('description');
 
         $emailAuthor = auth()->user()->email;
@@ -190,51 +218,63 @@ class NewsController extends Controller
     public function destroy($id)
     {
         //
+        $news = News::find($id);
+        if ($news->delete()){
+            $notification = "!La noticia se ha eliminado correctamente¡";
+            return back()->with(compact('notification'));
+        }else{
+            $notificationFaill = "La noticia no se ha podido eliminar :(";
+            return back()->with(compact('notificationFaill'));
+        }
     }
+
 
 }
 
 
-//dd($news);
+/*$newsImages = NewsImage::where('news_id',$id);
 
-//$images = NewsImage::all();
-//$null = $images->where('news_id',null);
+          if ($news != null){
+              $deleted = true;
+              if ($news->images->count() > 0){
+                  $images = File::files(public_path() . '/images/news_images');
 
+                  foreach ($news->images as $image){
+                      $fullPath = public_path() . '/images/news_images/' . $image->image;
+                      if (substr($image->image,0,3)=="http"){
+                          $image->image->delete();
+                      }else{
+                          foreach ($images as $img){
+                              if ($image->image == pathinfo($img)['basename']) {
+                                  $deleted = File::delete($fullPath);
+                              } else {
+                                  $deleted = true;
+                              }
+                          }
+                      }
+                  }
+                  if ($deleted) {
+                      $newsImages->delete();
+                      $news->delete();
 
+                      $notification = "!La noticia se ha eliminado correctamente¡";
+                      return back()->with(compact('notification'));
+                  }else{
+                      $notificationFaill = "La noticia no se ha podido eliminar :(";
+                      return back()->with(compact('notificationFaill'));
+                  }
+              }else{
+                  if ($news->delete()){
+                      $notification = "!La noticia se ha eliminado correctamente¡";
+                      return back()->with(compact('notification'));
+                  }else{
+                      $notificationFaill = "La noticia no se ha podido eliminar :(";
+                      return back()->with(compact('notificationFaill'));
+              }
 
-
-/* //get filename with extension
-            $filenamewithextension = $request->file('upload')->getClientOriginalName();
-
-            //get filename without extension
-            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
-
-            //get file extension
-            $extension = $request->file('upload')->getClientOriginalExtension();
-
-            //filename to store
-            $filenametostore = $filename.'_'.time().'.'.$extension;
-
-            //Upload File
-            $request->file('upload')->move(public_path() . '/images/news_images', $filenametostore);
-
-            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = '/images/news_images/'.$filenametostore;
-            $msg = 'Image successfully uploaded';
-            $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
-
-            // Render HTML output
-            @header('Content-type: text/html; charset=utf-8');
-            echo $re;*/
-//Guardar la imagen en nuestro Proyecto
-
-/*$file = $request->file('upload');
-            $path = public_path() . '/images/news_images';
-            $fileName = uniqid() . '-' . $file->getClientOriginalName(); //Renombrar la Imagen
-            $moved = $file->move($path, $fileName);
-            //Crear 1 registro en la tabla de users
-            if ($moved) {
-                $user->porfile_image = $fileName;
-            }*/
-
-
+          }
+    }else{
+              $notificationFaill = "La noticia no existe";
+              return back()->with(compact('notificationFaill'));
+          }
+    }*/

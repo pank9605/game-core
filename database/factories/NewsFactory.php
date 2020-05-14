@@ -13,7 +13,6 @@ $factory->define(News::class, function (Faker $faker) {
         'description' => $faker->sentence(100),
         'about' => $faker->sentence(100),
         'calification'=> $faker->numberBetween(40,100),
-        'publish_date' => $faker->date('Y-m-d H:i'),
         'featured' => $faker->boolean,
         'user_id' => $faker->numberBetween(1,52),
         'category_id' => $faker->numberBetween(1,6),
