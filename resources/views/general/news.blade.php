@@ -19,8 +19,6 @@
                         <p>{{$news->introduction}}.</p>
                         <hr>
                         <img src="{{$news->news_image_featured}}" class="img-thumbnail" alt="Responsive image">
-                        &nbsp;
-                        <p>Descripción de la imagen.</p>
                         <hr>
 
                         {!!$news->description!!}

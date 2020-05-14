@@ -29,6 +29,11 @@
                                     <textarea class="form-control" name="introduction" id="exampleFormControlTextarea1" rows="3">{{old('introduction',$news->introduction)}}</textarea>
                                 </div>
 
+                                <div class="form-group mt-2 col-12">
+                                    <label for="exampleFormControlTextarea1">Acerca de...</label>
+                                    <textarea class="form-control" name="about" id="exampleFormControlTextarea2" rows="3">{{old('about',$news->about)}}</textarea>
+                                </div>
+
                                 <div class="col-12 form-group">
                                     <select class="form-control selectpicker" name="category">
                                         <option selected>{{$news->category->name}}</option>

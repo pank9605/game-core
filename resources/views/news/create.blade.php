@@ -29,6 +29,11 @@
                                     <textarea class="form-control" name="introduction" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
 
+                                <div class="form-group mt-2 col-12">
+                                    <label for="exampleFormControlTextarea1">Acerca de...</label>
+                                    <textarea class="form-control" name="about" id="exampleFormControlTextarea2" rows="3"></textarea>
+                                </div>
+
                                 <div class="col-12 mt-4 form-group">
                                     <select class="form-control selectpicker" name="category">
                                         <option>Seleccione una Categoría</option>

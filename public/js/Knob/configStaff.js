@@ -21,13 +21,13 @@ clasification.change(function () {
 function showCalificarionFeatured() {
     if (clasification.val() == "Reseñas"){
         $(".calification-content").removeClass('d-none');
+        $(".featured-content").removeClass('d-none');
+    }else if(clasification.val() == "Noticias"){
+        $(".featured-content").removeClass('d-none');
+        $(".calification-content").addClass('d-none');
     }else{
         $(".calification-content").addClass('d-none');
-    }
-
-    if (clasification.val() == "Noticias"){
-        $(".featured-content").removeClass('d-none');
-    }else{
         $(".featured-content").addClass('d-none');
     }
+
 }

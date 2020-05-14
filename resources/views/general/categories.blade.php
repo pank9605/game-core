@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="row col-12 m-0 padding-top">
         <div class="col-12 col-lg-9">

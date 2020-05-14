@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Bienvenido a '.config('app.name'))
 
-
 @section('content')
     <!--Slider-->
     <div id="carousel1" class="carousel slide" data-ride="carousel">
@@ -51,7 +50,7 @@
                 <div class="col-12 col-xl-5">
                     <div class="card card-border ml-0 ml-xl-4">
                         <div class="card-header text-center">
-                            <h3><i class="fas fa-newspaper"></i> Reseñas</h3>
+                            <h4><i class="fas fa-newspaper"></i> Ultimas Reseñas</h4>
                         </div>
                         <div class="card-body">
                             <ul class="list-group list">
@@ -77,7 +76,7 @@
                 <div class="col-12 col-xl-5 mr-0 mr-xl-4 mt-5 mt-xl-0">
                     <div class="card card-border">
                         <div class="card-header text-center">
-                            <h3><i class="fas fa-mobile"></i> Movil</h3>
+                            <h4><i class="fas fa-mobile"></i> PC | Movil</h4>
                         </div>
                         <div class="card-body">
                             <ul class="list-group list">
@@ -100,7 +99,7 @@
                 <div id="carousel2" class="carousel slide slider-border col-12 col-xl-11  m-auto" data-ride="carousel">
                     <div id="carousel1" class="carousel slide" data-ride="carousel2">
                         <ol class="carousel-indicators">
-                            @for($i=0; $i < $featuredPcMobile->count(); $i++)
+                            @for($i=0; $i < $featuredReviews->count(); $i++)
                                 @if($i==0)
                                     <li data-target="#carousel2" data-slide-to="{{$i}}" class="active"></li>
                                 @else
@@ -109,7 +108,7 @@
                             @endfor
                         </ol>
                         <div class="carousel-inner">
-                            @foreach($featuredPcMobile as $key=>$item)
+                            @foreach($featuredReviews as $key=>$item)
                                 {{$active=""}}
                                 @if($key ==0)
                                     {{$active= "active"}}

@@ -81,23 +81,31 @@ class NewsController extends Controller
         $category = Category::where('name',$request->input('category'))->first();
         $clasification = Clasification::where('name',$request->input('clasification'))->first();
 
-        if ($request->input('clasification') == "Noticias"){
+        if ($request->input('clasification') == "Noticias" ){
             $news->calification = null;
+            $news->about = $request->input('about');
             if ($request->input('featured')!=null){
                 $news->featured = true;
             }else{
                 $news->featured = false;
             }
+        }else if($request->input('clasification') == "Reseñas"){
+            $news->about = $request->input('about');
+            $news->calification = $request->input('calification');
+
+            if ($request->input('featured')!=null){
+                $news->featured = true;
+            }else{
+                $news->featured = false;
+            }
+
         }else{
-            $news->featured = false;
             $news->calification = null;
+            $news->featured = false;
+
         }
 
-        if ($request->input('clasification') == "Reseñas"){
-            $news->calification = $request->input('calification');
-        }else{
-            $news->calification = null;
-        }
+
 
         $news->title = $request->input('title');
         $news->description = $request->input('description');
@@ -171,11 +179,20 @@ class NewsController extends Controller
 
         if ($request->input('clasification') == "Noticias"){
             $news->calification = null;
+            $news->about = $request->input('about');
             if ($request->input('featured')!=null){
                 $news->featured = true;
             }else{
                 $news->featured = false;
             }
+        }else if($request->input('clasification') == "Reseñas"){
+            $news->about = $request->input('about');
+            if ($request->input('featured')!=null){
+                $news->featured = true;
+            }else{
+                $news->featured = false;
+            }
+            $news->calification = $request->input('calification');
         }else{
             $news->featured = false;
             $news->calification = null;

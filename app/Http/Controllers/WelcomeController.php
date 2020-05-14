@@ -11,7 +11,8 @@ class WelcomeController extends Controller
     public function index()
     {
         //
-        $news = News::where('featured',true)->orderBy('updated_at','desc')->get();
+        $newsFeatured = News::where('featured',true)->orderBy('updated_at','desc')->get();
+        $news = News::with('user')->orderBy('updated_at','desc')->get();
         $featuredNews = collect();
         foreach ($news as $item) {
             if ($item->category->name == "Playstation" && $item->clasification->name == "Noticias" ||
@@ -26,11 +27,11 @@ class WelcomeController extends Controller
 
         $mobileSection=collect();
         foreach ($news as $item) {
-            if ($item->category->name == "Movil" && $item->clasification->name == "Noticias"){
+            if ($item->category->name == "Movil" || $item->category->name == "PC" && $item->clasification->name == "Noticias"){
                 $mobileSection->push($item);
             }
         }
-        $mobileSection = $mobileSection->forPage(0,10);
+        $mobileSection = $mobileSection->forPage(0,20);
 
 
         $reviewSection= collect();
@@ -38,26 +39,27 @@ class WelcomeController extends Controller
             if ($item->category->name == "Playstation" && $item->clasification->name == "Reseñas" ||
                 $item->category->name == "Xbox" && $item->clasification->name == "Reseñas" ||
                 $item->category->name == "Nintendo" && $item->clasification->name == "Reseñas" ||
-                $item->category->name == "Multi Consola" && $item->clasification->name == "Reseñas"){
+                $item->category->name == "Multi Consola" && $item->clasification->name == "Reseñas" ||
+                $item->category->name == "PC" && $item->clasification->name == "Reseñas"||
+                $item->category->name == "Movil" && $item->clasification->name == "Reseñas"){
                 $reviewSection->push($item);
             }
         }
-        $reviewSection= $reviewSection->forPage(0,10);
+        $reviewSection= $reviewSection->forPage(0,20);
 
 
-        $featuredPcMobile=collect();
-        foreach ($news as $item) {
-            if ($item->category->name == "PC" && $item->clasification->name == "Noticias" ||
-                $item->category->name == "Movil" && $item->clasification->name == "Noticias"){
-                $featuredPcMobile->push($item);
+        $featuredReviews=collect();
+        foreach ($newsFeatured as $item) {
+            if ($item->clasification->name == "Reseñas"){
+                $featuredReviews->push($item);
             }
         }
-        $featuredPcMobile= $featuredPcMobile->forPage(0,8);
+        $featuredReviews= $featuredReviews->forPage(0,8);
 
 
         $news = News::with('user')->orderBy('id','desc')->paginate(10);
 
-        return view('welcome')->with(compact('news','featuredNews','mobileSection','reviewSection','featuredPcMobile'));
+        return view('welcome')->with(compact('news','featuredNews','mobileSection','reviewSection','featuredReviews'));
     }
 
 
