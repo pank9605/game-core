@@ -144,6 +144,17 @@
                         <i class="fas fa-search"></i><input type="text" class="form-control ml-3 col-11" id="search"  placeholder="Buscar...">
                     </form>
                 </div>
+
+
+                <!-- Aside 2 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5455720448748407"
+                     data-ad-slot="4505030376"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"
+                     data-adtest="on"></ins>
+
             </div>
 
 
