@@ -39,7 +39,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark position-fixed menu-container" id="menu">
                 <a class="navbar-brand" href="{{url('/')}}">
                     <img id="logo" src="{{asset('img/corewhite.png')}}" height="40" alt="Game Core">
-                    Game Core
+                    <b>Game Core</b>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
