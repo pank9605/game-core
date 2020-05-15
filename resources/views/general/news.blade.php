@@ -17,6 +17,13 @@
                         <p class="blog-post-meta">{{$news->date}} por <a href="#">{{$news->user->username}}</a></p>
 
                         <p>{{$news->introduction}}.</p>
+                        <!-- Baner -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-5455720448748407"
+                             data-ad-slot="8013864695"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
                         <hr>
                         <img src="{{$news->news_image_featured}}" class="img-thumbnail" alt="Responsive image">
                         <hr>
@@ -60,6 +67,13 @@
                             <li><a href="#">Facebook</a></li>
                         </ol>
                     </div>
+                        <!-- Aside Large -->
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-5455720448748407"
+                             data-ad-slot="6357647029"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
                 </div><!-- /.blog-sidebar -->
 
             </div><!-- /.row -->

@@ -145,15 +145,14 @@
                     </form>
                 </div>
 
-
-                <!-- Aside 2 -->
+                <!-- Baner -->
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-5455720448748407"
-                     data-ad-slot="4505030376"
+                     data-ad-slot="8013864695"
                      data-ad-format="auto"
-                     data-full-width-responsive="true"
-                     data-adtest="on"></ins>
+                     data-full-width-responsive="true"></ins>
+                <script>
 
             </div>
 
