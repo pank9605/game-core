@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\News;
 use App\Podcast;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WelcomeController extends Controller
 {
@@ -63,18 +64,6 @@ class WelcomeController extends Controller
     }
 
 
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-
     public function show($category,$clasification,$id)
     {
         //
@@ -87,7 +76,16 @@ class WelcomeController extends Controller
             })->where('id',$id)
             ->first();
         if ($news!=null)
-            return view('general.news')->with(compact('news'));
+            $title = explode(' ',$news->title);
+            $firstWord =$title[0];
+            $archives = News::where('title','like','%'.$firstWord.'%')->get();
+            $related=collect();
+            foreach ($archives as $archive){
+                if ($archive->title != $news->title){
+                    $related->push($archive);
+                }
+            }
+            return view('general.news')->with(compact('news','related'));
         return back();
     }
 

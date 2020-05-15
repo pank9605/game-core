@@ -37,28 +37,22 @@
                 <!-- BARRA LATERAL -->
 
                 <div class="col-lg-3 offset-sm-1 blog-sidebar">
-                    <div class="sidebar-module sidebar-module-inset">
-                        <h4>Acerca de</h4>
-                        <p class="text-justify">{{$news->about}}</p>
-                    </div>
-
-                    <div class="sidebar-module">
-                        <h4>Archives</h4>
-                        <ol class="list-unstyled">
-                            <li><a href="#">March 2014</a></li>
-                            <li><a href="#">February 2014</a></li>
-                            <li><a href="#">January 2014</a></li>
-                            <li><a href="#">December 2013</a></li>
-                            <li><a href="#">November 2013</a></li>
-                            <li><a href="#">October 2013</a></li>
-                            <li><a href="#">September 2013</a></li>
-                            <li><a href="#">August 2013</a></li>
-                            <li><a href="#">July 2013</a></li>
-                            <li><a href="#">June 2013</a></li>
-                            <li><a href="#">May 2013</a></li>
-                            <li><a href="#">April 2013</a></li>
-                        </ol>
-                    </div>
+                    @if($news->about!= null)
+                        <div class="sidebar-module sidebar-module-inset">
+                            <h4>Acerca de</h4>
+                            <p class="text-justify">{{$news->about}}</p>
+                        </div>
+                    @endif
+                        @if(count($related) > 0)
+                            <div class="sidebar-module">
+                                <h4>Relacionados</h4>
+                                <ol class="list-unstyled">
+                                    @foreach($related as $item)
+                                        <li><a href="{{url('news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}">{{$item->title}}</a></li>
+                                    @endforeach
+                                </ol>
+                            </div>
+                        @endif
                     <div class="sidebar-module">
                         <h4>Elsewhere</h4>
                         <ol class="list-unstyled">

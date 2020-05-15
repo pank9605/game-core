@@ -14,7 +14,6 @@ $(function() {
 
 
 clasification.change(function () {
-    //alert(clasification.val());
     showCalificarionFeatured();
 });
 
