@@ -6,7 +6,8 @@
     <div class="card">
         <div class="card-header card-header-text card-header-primary">
             <div class="card-text">
-                <h4 class="card-title">Imageness de la Noticia</h4>
+                <h4 class="card-title float-left">Imagenes de la Noticia</h4>
+                <p class="category float-right m-0"><a href="{{url('staff/news/{id}/images/create')}}" class="btn btn-round btn-secondary"><i class="fas fa-plus"></i> Agregar</a></p>
             </div>
         </div>
         <div class="card-body">

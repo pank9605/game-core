@@ -152,7 +152,6 @@
                      data-ad-slot="8013864695"
                      data-ad-format="auto"
                      data-full-width-responsive="true"></ins>
-                <script>
 
             </div>
 
