@@ -6,6 +6,7 @@ use App\News;
 use App\NewsImage;
 use Illuminate\Http\Request;
 use File;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class NewsImagesController extends Controller
 {
@@ -29,7 +30,7 @@ class NewsImagesController extends Controller
         }else{
             $images = $news->images()->orderBy('featured','desc')->get();
 
-            return view('news.news_images.index')->with(compact('images','news'));
+            return view('news.news_images.index')->with(compact('images','news','id'));
         }
 
 
@@ -38,12 +39,42 @@ class NewsImagesController extends Controller
     public function create()
     {
         //
+        return view('news.news_images.create');
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         //
+        if($request->hasFile('featured-image')) {
+
+            $image = new NewsImage();
+            $file = $request->file('featured-image');
+            $fileName = uniqid() . '-' . $file->getClientOriginalName(); //Renombrar la Imagen
+            $path = public_path('images/news_images/'. $fileName);
+
+            $imageSave = Image::make($file->getRealPath())
+                ->resize(1280,720)->fill();
+
+            //Crear 1 registro en la tabla de users
+            if ($imageSave->save($path,72)) {
+                $image->image = $fileName;
+                $image->news_id = $id;
+                NewsImage::where('news_id',$id)->update([
+                    'featured' => false
+                ]);
+                $image->featured = true;
+
+                if ($image->save()){
+                    $notification = "!La imagen se cargado correctamente :D";
+                    return back()->with(compact('notification'));
+                }else{
+                    $notificationFaill = "!La imagen no se cargado correctamente :C";
+                    return back()->with(compact('notificationFaill'));
+                }
+            }
+
+        }
     }
 
 

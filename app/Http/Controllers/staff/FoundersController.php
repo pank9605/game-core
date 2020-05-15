@@ -68,10 +68,10 @@ class FoundersController extends Controller
 
         if ($founder->save() && $founder->address()->save($address)){
             $notification ="!Registro Exitoso¡";
-            return redirect('/founder')->with(compact('notification'));
+            return redirect('staff/founder')->with(compact('notification'));
         }else{
             $notificationFaill ="Registro Fallido :(";
-            return redirect('/founder')->with(compact('notificationFaill'));
+            return redirect('staff/founder')->with(compact('notificationFaill'));
         }
     }
 

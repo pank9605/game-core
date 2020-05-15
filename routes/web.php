@@ -42,8 +42,9 @@ Route::middleware(['auth','staff','editor','username'])->prefix('staff')->group(
     Route::delete('/news/delete/{id}','Staff\NewsController@destroy');
 
     Route::get('/news/{id}/images', 'Staff\NewsImagesController@index');
-    Route::get('/news/{id}/images/create', 'Staff\NewsImagesController@create'); //Formulario de creación de imagenes
+
     Route::post('/news/{id}/images/create', 'Staff\NewsImagesController@store'); //Registro de imagenes
+
     Route::get('/news/{id}/edit', 'Staff\NewsController@edit'); //Formulario de Noticia
     Route::post('/news/{id}/update', 'Staff\NewsController@update');// Actualizar Noticia
     Route::get('/news/{id}/images/{image}/featured', 'Staff\NewsImagesController@imageFeatured');

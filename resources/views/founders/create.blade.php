@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{url('founder/create')}}">
+                <form method="POST" action="{{url('staff/founder/create')}}">
                     <div class="card-body">
                         @csrf
                         <div class="form-row">

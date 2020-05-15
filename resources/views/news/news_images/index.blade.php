@@ -6,8 +6,7 @@
     <div class="card">
         <div class="card-header card-header-text card-header-primary">
             <div class="card-text">
-                <h4 class="card-title float-left">Imagenes de la Noticia</h4>
-                <p class="category float-right m-0"><a href="{{url('staff/news/{id}/images/create')}}" class="btn btn-round btn-secondary"><i class="fas fa-plus"></i> Agregar</a></p>
+                <h4 class="card-title">Imageness de la Noticia {{$id}}</h4>
             </div>
         </div>
         <div class="card-body">
@@ -20,11 +19,30 @@
                     {{ session('notificationFaill') }}
                 </div>
             @endif
+
+                <div class="col-md-12 mt-4">
+                    <form method="POST" action="{{url('/staff/news/'.$id.'/images/create')}}" enctype="multipart/form-data">
+                        @csrf
+                        <label for="exampleInputEmail1">Imagen destacada</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-image"></i>
+                                </span>
+                            </div>
+                            <input type="file" class="inputFileHidden form-control" name="featured-image">
+
+                            <button type="submit" class="btn btn-primary ml-4">Subir</button>
+                        </div>
+                    </form>
+                </div>
+
             <div class="row justify-content-center">
                 @if($images != null)
                     @foreach($images as $image )
                     <div class="col-12 col-lg-4 col-xl-4">
                         <div class="card justify-content-center">
+
                             <div class="card-body">
                                     <img class="news-image mt-2" src="{{$image->news_image}}">
                                 <form method="POST" action="{{url('staff/news/images/'.$image->id.'/delete')}}" onsubmit="return deleteImage(this)";>
