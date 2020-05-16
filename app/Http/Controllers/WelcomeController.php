@@ -49,7 +49,6 @@ class WelcomeController extends Controller
         $reviewSection= $reviewSection->forPage(0,20);
 
 
-
         $featuredPcMovil = collect();
         foreach ($newsFeatured as $item) {
             if ($item->category->name == "PC" && $item->clasification->name == "Noticias" ||
@@ -61,7 +60,6 @@ class WelcomeController extends Controller
 
 
         $featuredReviews=collect();
-
         foreach ($newsFeatured as $item) {
             if ($item->clasification->name == "Reseñas"){
                 $featuredReviews->push($item);
@@ -87,18 +85,22 @@ class WelcomeController extends Controller
                 $query->where('clasifications.name', '=', $clasification);
             })->where('id',$id)
             ->first();
-        if ($news!=null)
-            $title = explode(' ',$news->title);
-            $firstWord =$title[0];
-            $archives = News::where('title','like','%'.$firstWord.'%')->get();
-            $related=collect();
-            foreach ($archives as $archive){
-                if ($archive->title != $news->title){
+        if ($news!=null) {
+            $title = explode(' ', $news->title);
+            $firstWord = $title[0];
+            $archives = News::where('title', 'like', '%' . $firstWord . '%')->get();
+            $related = collect();
+            foreach ($archives as $archive) {
+                if ($archive->title != $news->title && $archive->category->name == $category) {
                     $related->push($archive);
                 }
             }
-            return view('general.news')->with(compact('news','related'));
-        return back();
+            $related = $related->forPage(0,8);
+            return view('general.news')->with(compact('news', 'related'));
+        }else{
+            return back();
+        }
+
     }
 
 
@@ -140,9 +142,6 @@ class WelcomeController extends Controller
         return back();
         }
     }
-
-
-
 
     public function update(Request $request, $id)
     {

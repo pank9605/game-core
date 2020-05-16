@@ -20,15 +20,15 @@
                                 <input type="file" name="image"></input>
                             </div>
 
-                            </div>
                         </div>
                     </div>
             </div>
-            <div class="footer text-center">
-                <button type="submit" class="btn btn-primary">Agregar</button>
-            </div>
-            </form>
         </div>
+        <div class="footer text-center">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </div>
+        </form>
+    </div>
     </div>
     </div>
 

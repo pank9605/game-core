@@ -4,7 +4,7 @@
 @section('content')
     <!--Slider-->
     <div id="carousel1" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
+        <ol class="carousel-indicators my-0">
             @for($i=0; $i < $featuredNews->count(); $i++)
                 @if($i==0)
                     <li data-target="#carousel1" data-slide-to="{{$i}}" class="active"></li>
@@ -23,10 +23,13 @@
                 <div class="carousel-item carousel-item-principal {{$active}}">
                     <a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}">
                         <img class="d-block w-100" src="{{$item->news_image_featured}}" alt="First slide">
-                        <div class="carousel-caption">
-                            <div class="title">{{$item->title}}</div>
-                            <p>{{$item->news_introduction}}</p>
+                        <div class="description-slider">
+                            <div class="carousel-caption">
+                                <div class="title">{{$item->title}}</div>
+                                <p>{{$item->news_introduction}}</p>
+                            </div>
                         </div>
+
                     </a>
                 </div>
 
@@ -103,7 +106,7 @@
             <div class="mt-5">
                 <div id="carousel2" class="carousel slide slider-border col-12 col-xl-11  m-auto" data-ride="carousel">
                     <div id="carousel1" class="carousel slide" data-ride="carousel2">
-                        <ol class="carousel-indicators">
+                        <ol class="carousel-indicators my-0">
                             @for($i=0; $i < $featuredPcMovil->count(); $i++)
                                 @if($i==0)
                                     <li data-target="#carousel2" data-slide-to="{{$i}}" class="active"></li>
@@ -121,10 +124,12 @@
                                 <div class="carousel-item carousel-item-principal {{$active}}">
                                     <a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}">
                                         <img class="d-block w-100" src="{{$item->news_image_featured}}" alt="First slide">
-                                        <div class="carousel-caption">
-                                            <div class="title">{{$item->title}}</div>
-                                            <p>{{$item->mobile_introduction}}</p>
-                                        </div>
+
+                                            <div class="carousel-caption">
+                                                <div class="title">{{$item->title}}</div>
+                                                <p>{{$item->mobile_introduction}}</p>
+                                            </div>
+
                                     </a>
                                 </div>
                             @endforeach

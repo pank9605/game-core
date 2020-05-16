@@ -62,7 +62,6 @@ class NewsController extends Controller
         return view('news.index')->with(compact('news','totalNews'));
     }
 
-
     public function create()
     {
         //
@@ -70,7 +69,6 @@ class NewsController extends Controller
         $date = $now->format('Y-m-d\TH:i');
         $categories = Category::all();
         $clasifications = Clasification::all();
-
         return view('news.create')->with(compact('categories','clasifications','date'));
     }
 
@@ -106,7 +104,6 @@ class NewsController extends Controller
         }
 
 
-
         $news->title = $request->input('title');
         $news->description = $request->input('description');
 
@@ -114,9 +111,35 @@ class NewsController extends Controller
         $news->clasification_id =$clasification->id;
 
         $news->introduction = $request->input('introduction');
+
+
         $news->user_id = auth()->user()->id;
 
         $news->save();
+
+        $id = $news->id;
+
+        if($request->hasFile('featured_image')) {
+
+            $image = new NewsImage();
+            $file = $request->file('featured_image');
+            $fileName = uniqid() . '-' . $file->getClientOriginalName(); //Renombrar la Imagen
+            $path = public_path('images/news_images/'. $fileName);
+
+            $imageSave = Image::make($file->getRealPath())
+                ->resize(1280,720)->fill();
+
+            //Crear 1 registro en la tabla de users
+            if ($imageSave->save($path,72)) {
+                $image->image = $fileName;
+                $image->news_id = $id;
+                NewsImage::where('news_id',$id)->update([
+                    'featured' => false
+                ]);
+                $image->featured = true;
+            }
+        }
+
         $emailAuthor = auth()->user()->email;
         if (session($emailAuthor)){
             foreach (session($emailAuthor) as $item) {
@@ -127,7 +150,7 @@ class NewsController extends Controller
             Session::forget($emailAuthor);
         }
 
-        if ($news || $images){
+        if ($news && $image->save() || $images && $image->save()){
             $notification = "Noticia Registrada Correctamente :D";
             return redirect('/staff/news')->with(compact('notification'));
         }else{
@@ -173,43 +196,104 @@ class NewsController extends Controller
     {
         //
         $news = News::find($id);
-        $category = Category::where('name',$request->input('category'))->first();
-        $clasification = Clasification::where('name',$request->input('clasification'))->first();
+        $category = Category::where('name', $request->input('category'))->first();
+        $clasification = Clasification::where('name', $request->input('clasification'))->first();
 
-
-        if ($request->input('clasification') == "Noticias"){
+        if ($request->input('clasification') == "Noticias") {
             $news->calification = null;
             $news->about = $request->input('about');
-            if ($request->input('featured')!=null){
+            if ($request->input('featured') != null) {
                 $news->featured = true;
-            }else{
+            } else {
                 $news->featured = false;
             }
-        }else if($request->input('clasification') == "Reseñas"){
+        } else if ($request->input('clasification') == "Reseñas") {
             $news->about = $request->input('about');
-            if ($request->input('featured')!=null){
+            if ($request->input('featured') != null) {
                 $news->featured = true;
-            }else{
+            } else {
                 $news->featured = false;
             }
             $news->calification = $request->input('calification');
-        }else{
+        } else {
             $news->featured = false;
             $news->calification = null;
         }
 
-        if ($request->input('clasification') == "Reseñas"){
+        if ($request->input('clasification') == "Reseñas") {
             $news->calification = $request->input('calification');
-        }else{
+        } else {
             $news->calification = null;
         }
 
         $news->title = $request->input('title');
         $news->introduction = $request->input('introduction');
-        $news->category_id= $category->id;
-        $news->clasification_id= $clasification->id;
-
+        $news->category_id = $category->id;
+        $news->clasification_id = $clasification->id;
         $news->description = $request->input('description');
+
+        if($request->hasFile('featured_image')) {
+
+            $image = NewsImage::where('news_id',$id)->where('featured',true)->first();
+
+            if ($image != null){
+
+                if (substr($image,0,4)=="http"){
+                    $deleted = true;
+                } else {
+                    $images = File::files(public_path(). '/images/news_images');
+                    $fullPath = public_path() . '/images/news_images/' . $image;
+                    foreach ($images as $img){
+                        if ($image->name == pathinfo($img)['basename']){
+                            $deleted = File::delete($fullPath);
+                        }else{
+                            $deleted = true;
+                        }
+                    }
+
+                    if ($deleted) {
+                        //Guardar la imagen en nuestro Proyecto
+                        $file = $request->file('featured_image');
+                        $fileName = uniqid() . '-' . $file->getClientOriginalName(); //Renombrar la Imagen
+                        $path = public_path('images/news_images/'. $fileName);
+
+                        $imageSave = Image::make($file->getRealPath())
+                            ->resize(1280,720)->fill();
+
+
+                        //Crear 1 registro en la tabla de users
+                        if ($imageSave->save($path,72)) {
+
+                            NewsImage::where('news_id',$id)->update([
+                                'featured' => false
+                            ]);
+
+                            $image->featured = true;
+                            $image->image = $fileName;
+                            $image->save();
+                        }
+                    }
+                }
+            }else{
+                //Guardar la imagen en nuestro Proyecto
+                $file = $request->file('featured_image');
+                $fileName = uniqid() . '-' . $file->getClientOriginalName(); //Renombrar la Imagen
+                $path = public_path('images/news_images/'. $fileName);
+
+                $imageSave = Image::make($file->getRealPath())
+                    ->resize(1280,720)->fill();
+
+
+                //Crear 1 registro en la tabla de users
+                if ($imageSave->save($path,72)) {
+                    $image = new NewsImage();
+                    $image->image = $fileName;
+                    $image->featured = true;
+                    $image->news_id=$id;
+                    $image->save();
+                }
+            }
+        }
 
         $emailAuthor = auth()->user()->email;
         if (session($emailAuthor)){
@@ -244,54 +328,4 @@ class NewsController extends Controller
             return back()->with(compact('notificationFaill'));
         }
     }
-
-
 }
-
-
-/*$newsImages = NewsImage::where('news_id',$id);
-
-          if ($news != null){
-              $deleted = true;
-              if ($news->images->count() > 0){
-                  $images = File::files(public_path() . '/images/news_images');
-
-                  foreach ($news->images as $image){
-                      $fullPath = public_path() . '/images/news_images/' . $image->image;
-                      if (substr($image->image,0,3)=="http"){
-                          $image->image->delete();
-                      }else{
-                          foreach ($images as $img){
-                              if ($image->image == pathinfo($img)['basename']) {
-                                  $deleted = File::delete($fullPath);
-                              } else {
-                                  $deleted = true;
-                              }
-                          }
-                      }
-                  }
-                  if ($deleted) {
-                      $newsImages->delete();
-                      $news->delete();
-
-                      $notification = "!La noticia se ha eliminado correctamente¡";
-                      return back()->with(compact('notification'));
-                  }else{
-                      $notificationFaill = "La noticia no se ha podido eliminar :(";
-                      return back()->with(compact('notificationFaill'));
-                  }
-              }else{
-                  if ($news->delete()){
-                      $notification = "!La noticia se ha eliminado correctamente¡";
-                      return back()->with(compact('notification'));
-                  }else{
-                      $notificationFaill = "La noticia no se ha podido eliminar :(";
-                      return back()->with(compact('notificationFaill'));
-              }
-
-          }
-    }else{
-              $notificationFaill = "La noticia no existe";
-              return back()->with(compact('notificationFaill'));
-          }
-    }*/

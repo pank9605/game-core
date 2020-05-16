@@ -16,9 +16,15 @@
     max-height: 900px;
     z-index: 0;
 }
+.carousel-caption{
+    background-color: rgba(0,0,0,0.4);
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
 
 .title{
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -28,7 +34,7 @@
     }
 
     .title {
-        font-size: 15px;
+        font-size: 11px;
         font-weight: bold;
     }
 }
@@ -37,6 +43,9 @@
     width: 10px;
     height: 10px;
     border-radius: 100%;
+}
+.carousel-indicators{
+
 }
 
 
@@ -269,6 +278,12 @@
 .author{
     text-transform: uppercase;
     text-transform: uppercase;
+}
+
+
+.blog-post img{
+    max-width: 100% !important;
+    height: auto !important;
 }
 
 /*Categories and Clasifications*/

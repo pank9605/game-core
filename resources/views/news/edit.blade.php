@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{url('/staff/news/'.$news->id.'/update')}}">
+                <form method="POST" action="{{url('/staff/news/'.$news->id.'/update')}}" enctype="multipart/form-data">
                     <div class="card-body">
                         @csrf
                         <div class="row">
@@ -32,6 +32,20 @@
                                 <div class="form-group mt-2 col-12">
                                     <label for="exampleFormControlTextarea1">Acerca de...</label>
                                     <textarea class="form-control" name="about" id="exampleFormControlTextarea2" rows="3">{{old('about',$news->about)}}</textarea>
+                                </div>
+
+
+                                <div class="col-12">
+                                    <label for="exampleInputEmail1">Imagen Destacada</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">
+                                              <i class="fas fa-image"></i>
+                                          </span>
+
+                                        </div>
+                                        <input type="file" class="inputFileHidden form-control" name="featured_image">
+                                    </div>
                                 </div>
 
                                 <div class="col-12 form-group">

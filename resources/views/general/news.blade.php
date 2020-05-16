@@ -14,7 +14,7 @@
                 <div class="col-lg-8 blog-main">
 
                     <div class="blog-post">
-                        <p class="blog-post-meta">{{$news->date}} por <a href="#">{{$news->user->username}}</a></p>
+                        <p class="blog-post-meta">{{$news->date}} por {{$news->user->username}}</p>
 
                         <p>{{$news->introduction}}.</p>
                         <!-- Baner -->
