@@ -104,7 +104,7 @@
                 <div id="carousel2" class="carousel slide slider-border col-12 col-xl-11  m-auto" data-ride="carousel">
                     <div id="carousel1" class="carousel slide" data-ride="carousel2">
                         <ol class="carousel-indicators">
-                            @for($i=0; $i < $featuredReviews->count(); $i++)
+                            @for($i=0; $i < $featuredPcMovil->count(); $i++)
                                 @if($i==0)
                                     <li data-target="#carousel2" data-slide-to="{{$i}}" class="active"></li>
                                 @else
@@ -113,7 +113,7 @@
                             @endfor
                         </ol>
                         <div class="carousel-inner">
-                            @foreach($featuredReviews as $key=>$item)
+                            @foreach($featuredPcMovil as $key=>$item)
                                 {{$active=""}}
                                 @if($key ==0)
                                     {{$active= "active"}}

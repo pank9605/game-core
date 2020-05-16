@@ -15,7 +15,7 @@ class WelcomeController extends Controller
         $newsFeatured = News::where('featured',true)->orderBy('updated_at','desc')->get();
         $news = News::with('user')->orderBy('updated_at','desc')->get();
         $featuredNews = collect();
-        foreach ($news as $item) {
+        foreach ($newsFeatured as $item) {
             if ($item->category->name == "Playstation" && $item->clasification->name == "Noticias" ||
                 $item->category->name == "Xbox" && $item->clasification->name == "Noticias" ||
                 $item->category->name == "Nintendo" && $item->clasification->name == "Noticias" ||
@@ -49,7 +49,19 @@ class WelcomeController extends Controller
         $reviewSection= $reviewSection->forPage(0,20);
 
 
+
+        $featuredPcMovil = collect();
+        foreach ($newsFeatured as $item) {
+            if ($item->category->name == "PC" && $item->clasification->name == "Noticias" ||
+                $item->category->name == "Movil" && $item->clasification->name == "Noticias"){
+                $featuredPcMovil->push($item);
+            }
+        }
+        $featuredPcMovil = $featuredPcMovil->forPage(0,8);
+
+
         $featuredReviews=collect();
+
         foreach ($newsFeatured as $item) {
             if ($item->clasification->name == "Reseñas"){
                 $featuredReviews->push($item);
@@ -60,7 +72,7 @@ class WelcomeController extends Controller
 
         $news = News::with('user')->orderBy('id','desc')->paginate(10);
 
-        return view('welcome')->with(compact('news','featuredNews','mobileSection','reviewSection','featuredReviews'));
+        return view('welcome')->with(compact('news','featuredNews','mobileSection','reviewSection','featuredPcMovil'));
     }
 
 
