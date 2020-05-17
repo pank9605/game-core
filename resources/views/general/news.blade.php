@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('page-title','{{$nes->title}}')
+@section('page-description','{{$nes->description}}')
+@section('page-image','{{$nes->news_image_featured}}')
 
 @section('content')
     <div class="float-left col-12 news-item-container">
@@ -38,6 +41,7 @@
                         </div>
                         @endif
                     </div><!-- /.blog-post -->
+                    <div class="fb-comments" data-href="http://www.gcgamecore.com/" data-numposts="10" data-width="100%"></div>
                 </div><!-- /.blog-main -->
 
 
@@ -76,9 +80,12 @@
                              data-full-width-responsive="true"></ins>
                 </div><!-- /.blog-sidebar -->
 
+
             </div><!-- /.row -->
 
+
         </div><!-- /.container -->
+
     </div>
 
     @include('includes.footer')

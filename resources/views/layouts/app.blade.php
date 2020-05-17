@@ -30,8 +30,18 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app-styles.css') }}" rel="stylesheet">
+
+
+    <!-- Facebook -->
+    <meta property="og:title" content="@yield('page-title')" />
+    <meta property="og:description" content="@yield('page-description')" />
+    <meta property="og:image" content="@yield('page-image')" />
+    <meta property="og:url" content="http://miweb.dominio" />
 </head>
 <body class="p-0 m-0">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0"></script>
+
 <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark position-fixed menu-container" id="menu">
         <a class="navbar-brand" href="{{url('/')}}">

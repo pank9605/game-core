@@ -3,7 +3,7 @@
 
 @section('content')
     <!--Slider-->
-    <div id="carousel1" class="carousel slide zindex" data-ride="carousel">
+    <div id="carousel1" class="carousel slide zindexFpc" data-ride="carousel">
         <ol class="carousel-indicators my-0">
             @for($i=0; $i < $featuredNews->count(); $i++)
                 @if($i==0)
@@ -89,9 +89,9 @@
                         <div class="card-body">
                             <ul class="list-group list">
                                 @foreach($mobileSection as $mobile)
-                                    <li class="list-group-item d-flex justify-content-between align-items-center ">
+                                    <li class="list-group-item d-flex justify-content-start align-items-center ">
                                         <img src="{{$mobile->news_image_featured}}" class="img-fluid" alt="{{$mobile->title}}">
-                                        <a class="item" href="{{url('/news/'.$mobile->category->name.'/'.$mobile->clasification->name.'/'.$mobile->id)}}">
+                                        <a class="text-justify" href="{{url('/news/'.$mobile->category->name.'/'.$mobile->clasification->name.'/'.$mobile->id)}}">
                                             {{$mobile->mobile_introduction}}
                                         </a>
                                     </li>
