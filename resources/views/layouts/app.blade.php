@@ -85,7 +85,7 @@
     <section id="social">
         <ul>
             <li class="fb wow slideInLeft" data-wow-delay="0s">
-                <a href=""><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour"><i class="fab fa-facebook fa-lg"></i></a>
             </li>
             <li class="tw wow slideInLeft" data-wow-delay="0.5s">
                 <a href=""><i class="fab fa-twitter fa-lg"></i></a>

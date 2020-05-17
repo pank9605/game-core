@@ -135,14 +135,13 @@
 }
 
 .news-title{;
-    font-size: 18px;
-    letter-spacing: 1px;
+    font-size: 15px;
     font-weight: bold;
 }
 
 .news-description{
     font-family: "fajala", Helvetica;
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: 1px;
 }
 
