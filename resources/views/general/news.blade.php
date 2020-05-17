@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('page-title',$news->title)
-@section('page-description',$news->description)
+@section('page-description',$news->introduction)
 @section('page-image',$news->news_image_featured)
 @section('url','http://www.gcgamecore.com/news/'.$news->category->name.'/'.$news->category->clasification.$news->id)
 
