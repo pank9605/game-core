@@ -3,7 +3,7 @@
 
 @section('content')
     <!--Slider-->
-    <div id="carousel1" class="carousel slide zindexFpc" data-ride="carousel">
+    <div id="carousel1" class="carousel slide zindex" data-ride="carousel">
         <ol class="carousel-indicators my-0">
             @for($i=0; $i < $featuredNews->count(); $i++)
                 @if($i==0)

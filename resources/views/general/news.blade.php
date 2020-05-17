@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('page-title','{{$nes->title}}')
+@section('page-title',$nes->title)
 @section('page-description','{{$nes->description}}')
 @section('page-image','{{$nes->news_image_featured}}')
 
