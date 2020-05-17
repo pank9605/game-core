@@ -7,7 +7,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- General Tags -->
     <title>@yield('title',config('app.name'))</title>
+    <meta name="description" content="@yield('page-description')"/>
+    <meta name="keywords" content="game, core, gamers, playstation, xbox, nintendo,
+    pc, móvil, videojuegos, noticas, reseñas, podcast, pank9605, unboxings"/>
+    <meta name="author" content="Eduardo Chávez Zúñiga" />
+    <meta name="copyright" content="Game-Core" />
+
     <link rel="shortcut icon" href="{{asset('img/coreblack.png')}}">
 
     <!-- Scripts -->
@@ -16,14 +23,13 @@
     <script src="{{asset('js/Knob/js/jquery.knob.js')}}" defer></script>
     <script src="{{ asset('js/Knob/config.js')}}" defer></script>
 
-
+    <!-- google -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
     <script data-ad-client="ca-pub-5455720448748407" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 @yield('headerJs')
 
-<!-- Fonts -->
+    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -85,7 +91,7 @@
     <section id="social">
         <ul>
             <li class="fb wow slideInLeft" data-wow-delay="0s">
-                <a href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour" target="_blank"><i class="fab fa-facebook fa-lg"></i></a>
             </li>
             <li class="tw wow slideInLeft" data-wow-delay="0.5s">
                 <a href=""><i class="fab fa-twitter fa-lg"></i></a>
@@ -103,6 +109,5 @@
 <script defer>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
 </body>
 </html>

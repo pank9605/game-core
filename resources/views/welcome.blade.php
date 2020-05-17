@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('title', 'Bienvenido a '.config('app.name'))
 
+@section('page-description','Entérate de las más recientes novedades sobre el mundo de los Videojuegos
+con nuestras noticias, reseñas, podcast, unboxings, especiales y mucho más.
+¡Solo en Game-Core!')
+
 @section('content')
     <!--Slider-->
     <div id="carousel1" class="carousel slide zindex" data-ride="carousel">
@@ -19,7 +23,6 @@
                 @if($key ==0)
                     {{$active= "active"}}
                 @endif
-
                 <div class="carousel-item carousel-item-principal {{$active}}">
                     <a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}">
                         <img class="d-block w-100" src="{{$item->news_image_featured}}" alt="First slide">
@@ -29,10 +32,8 @@
                                 <p>{{$item->news_introduction}}</p>
                             </div>
                         </div>
-
                     </a>
                 </div>
-
             @endforeach
         </div>
         <a class="carousel-control-prev zindex" href="#carousel1" role="button" data-slide="prev">
@@ -49,7 +50,6 @@
     <div class="row col-12 m-0 p-0">
         <div class="col-12 col-lg-9">
             <div class="row justify-content-center mt-5">
-
                 <div class="col-12 col-xl-5">
                     <div class="card card-border ml-0 ml-xl-4">
                         <div class="card-header text-center">
@@ -63,7 +63,6 @@
                                         <a href="{{url('/news/'.$review->category->name.'/'.$review->clasification->name.'/'.$review->id)}}">
                                             {{$review->title}}
                                         </a>
-
                                         <div class="col text-right p-0">
                                             @if($review->calification < 50)
                                                 <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#ed4757"></div>
@@ -73,7 +72,6 @@
                                                 <div class="calification"><input type="text" value="{{$review->calification}}" class="dial" data-fgColor="#87ceeb"></div>
                                             @endif
                                         </div>
-
                                     </li>
                                 @endforeach
                             </ul>
@@ -100,9 +98,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
             <div class="mt-5">
                 <div id="carousel2" class="carousel slide slider-border col-12 col-xl-11  m-auto" data-ride="carousel">
                     <div id="carousel1" class="carousel slide" data-ride="carousel2">
@@ -125,10 +121,10 @@
                                     <a href="{{url('/news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}">
                                         <img class="d-block w-100" src="{{$item->news_image_featured}}" alt="First slide">
 
-                                            <div class="carousel-caption">
-                                                <div class="title">{{$item->title}}</div>
-                                                <p>{{$item->mobile_introduction}}</p>
-                                            </div>
+                                        <div class="carousel-caption">
+                                            <div class="title">{{$item->title}}</div>
+                                            <p>{{$item->mobile_introduction}}</p>
+                                        </div>
 
                                     </a>
                                 </div>
@@ -157,7 +153,6 @@
                      data-ad-slot="8013864695"
                      data-ad-format="auto"
                      data-full-width-responsive="true"></ins>
-
             </div>
 
 
@@ -185,12 +180,6 @@
                                         <small>{{substr($item->date,0,10)}} <i class="fas fa-calendar-alt"></i></small> |  <small>
                                             {{substr($item->date,11,8)}} <i class="fas fa-clock"></i>
                                         </small>
-
-                                    </li>
-                                    <li>
-
-
-
                                     </li>
                                 </ul>
                             </div>
@@ -201,7 +190,6 @@
                     </div>
                 </div>
             @endforeach
-
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     {{$news->links()}}

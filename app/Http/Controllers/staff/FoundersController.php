@@ -47,11 +47,6 @@ class FoundersController extends Controller
         $founder->email = $request->input('email');
         $founder->password = bcrypt($request->input('password'));
 
-        //$username = $founder->name.substr($founder->first_name,0,2).substr($founder->last_name,0,1)
-          //  .substr($founder->birthdate,5,2).substr($founder->birthdate,8,2).'_'.substr($founder->birthdate,0,4);
-
-        //$founder->username = $username;
-
         $roles = Role::all();
         $role = $roles->where('name','Fundador');
         $id=$role[0]->id;

@@ -34,12 +34,12 @@
                         {!!$news->description!!}
                         <hr>
                         @if($news->calification != null)
-                        <div class="col-12 mt-4 mb-5 calification-content text-right">
-                            <li class="row  justify-content-center text-sm-right text-center">
-                                <label class="col align-self-center"><h1>Puntuación</h1></label>
-                                <input type="text" name="calification" value="{{$news->calification}}" class="show-calification">
-                            </li>
-                        </div>
+                            <div class="col-12 mt-4 mb-5 calification-content text-right">
+                                <li class="row  justify-content-center text-sm-right text-center">
+                                    <label class="col align-self-center"><h1>Puntuación</h1></label>
+                                    <input type="text" name="calification" value="{{$news->calification}}" class="show-calification">
+                                </li>
+                            </div>
                         @endif
                     </div><!-- /.blog-post -->
                     <div class="fb-comments" data-href="http://www.gcgamecore.com/" data-numposts="10" data-width="100%"></div>
@@ -55,16 +55,16 @@
                             <p class="text-justify">{{$news->about}}</p>
                         </div>
                     @endif
-                        @if(count($related) > 0)
-                            <div class="sidebar-module">
-                                <h4>Relacionados</h4>
-                                <ol class="list-unstyled">
-                                    @foreach($related as $item)
-                                        <li><a href="{{url('news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}">{{$item->title}}</a></li>
-                                    @endforeach
-                                </ol>
-                            </div>
-                        @endif
+                    @if(count($related) > 0)
+                        <div class="sidebar-module">
+                            <h4>Relacionados</h4>
+                            <ol class="list-unstyled">
+                                @foreach($related as $item)
+                                    <li><a href="{{url('news/'.$item->category->name.'/'.$item->clasification->name.'/'.$item->id)}}">{{$item->title}}</a></li>
+                                @endforeach
+                            </ol>
+                        </div>
+                    @endif
                     <div class="sidebar-module">
                         <h4>Elsewhere</h4>
                         <ol class="list-unstyled">
@@ -72,13 +72,13 @@
                             <li><a href="#">Facebook</a></li>
                         </ol>
                     </div>
-                        <!-- Aside Large -->
-                        <ins class="adsbygoogle"
-                             style="display:block"
-                             data-ad-client="ca-pub-5455720448748407"
-                             data-ad-slot="6357647029"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
+                    <!-- Aside Large -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-5455720448748407"
+                         data-ad-slot="6357647029"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
                 </div><!-- /.blog-sidebar -->
 
 
