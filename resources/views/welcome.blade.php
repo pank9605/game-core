@@ -151,12 +151,12 @@ con nuestras noticias, reseñas, podcast, unboxings, especiales y mucho más.
                 </div>
 
                 <!-- Baner -->
-                <ins class="adsbygoogle"
+                {{--<ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-5455720448748407"
                      data-ad-slot="8013864695"
                      data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
+                     data-full-width-responsive="true"></ins>--}}
             </div>
 
 
