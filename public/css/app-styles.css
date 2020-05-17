@@ -13,7 +13,6 @@
     background: no-repeat center center scroll;
     background-size: cover;
     max-height: 900px;
-    z-index: 0;
 }
 .carousel-caption{
     background-color: rgba(0,0,0,0.4);
@@ -27,16 +26,9 @@
     font-weight: bold;
 }
 
-@media only screen and (max-width: 1200px) {
-    .carousel-caption {
-        font-size: 8px;
-    }
 
-    .title {
-        font-size: 11px;
-        font-weight: bold;
-    }
-}
+
+
 
 .carousel-indicators li {
     width: 10px;
@@ -302,7 +294,7 @@
     margin-top: 100px;
     max-width: 40px;
     position: fixed;
-    z-index: 999999;
+    z-index: 9999;
 }
 
 #social > ul {
@@ -350,4 +342,23 @@
 #social ul li:hover {
     background-color: black;
     width: 130%;
+}
+.zindex{
+    z-index: 999;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .carousel-caption {
+        font-size: 8px;
+    }
+
+    .title {
+        font-size: 11px;
+        font-weight: bold;
+    }
+
+    #social {
+        z-index: 999;
+    }
 }

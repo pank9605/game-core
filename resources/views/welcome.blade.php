@@ -3,7 +3,7 @@
 
 @section('content')
     <!--Slider-->
-    <div id="carousel1" class="carousel slide" data-ride="carousel">
+    <div id="carousel1" class="carousel slide zindex" data-ride="carousel">
         <ol class="carousel-indicators my-0">
             @for($i=0; $i < $featuredNews->count(); $i++)
                 @if($i==0)
@@ -35,11 +35,11 @@
 
             @endforeach
         </div>
-        <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
+        <a class="carousel-control-prev zindex" href="#carousel1" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
+        <a class="carousel-control-next zindex" href="#carousel1" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>

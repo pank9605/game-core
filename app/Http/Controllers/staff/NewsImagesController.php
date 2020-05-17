@@ -54,7 +54,9 @@ class NewsImagesController extends Controller
             $path = public_path('images/news_images/'. $fileName);
 
             $imageSave = Image::make($file->getRealPath())
-                ->resize(1280,720)->fill();
+                ->resize(1280, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->sharpen();
 
             //Crear 1 registro en la tabla de users
             if ($imageSave->save($path,72)) {
