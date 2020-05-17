@@ -36,7 +36,7 @@
     <meta property="og:title" content="@yield('page-title')" />
     <meta property="og:description" content="@yield('page-description')" />
     <meta property="og:image" content="@yield('page-image')" />
-    <meta property="og:url" content="http://miweb.dominio" />
+    <meta property="og:url" content="@yield('url')" />
 </head>
 <body class="p-0 m-0">
 <div id="fb-root"></div>
