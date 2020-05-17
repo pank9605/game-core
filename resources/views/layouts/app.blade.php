@@ -37,6 +37,9 @@
     <meta property="og:description" content="@yield('page-description')" />
     <meta property="og:image" content="@yield('page-image')" />
     <meta property="og:url" content="@yield('url')" />
+    <meta property="fb:app_id" content="260127125344466" />
+    <meta property="og:type" content="article" />
+
 </head>
 <body class="p-0 m-0">
 <div id="fb-root"></div>
