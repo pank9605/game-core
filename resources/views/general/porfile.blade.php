@@ -269,7 +269,6 @@
                                           <span class="input-group-text">
                                               <i class="fas fa-image"></i>
                                           </span>
-
                                     </div>
                                     <input type="file" class="inputFileHidden form-control" name="cover_image">
                                 </div>

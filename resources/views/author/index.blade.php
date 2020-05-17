@@ -1,4 +1,5 @@
-@extends('layouts.admin')
+@extends('layouts.app')
+
 @section('img-background')
     <div class="page-header header-filter" data-parallax="true" style="background-image:url('{{$author->cover_image_url}}');"></div>
 @endsection
@@ -8,7 +9,7 @@
     </div>
 @endsection
 
-@section('porfile-data')
+@section('content')
     <div class="row">
         <div class="col-md-3 ml-auto mr-auto">
             <div class="profile">
