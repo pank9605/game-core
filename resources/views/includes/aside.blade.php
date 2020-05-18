@@ -1,5 +1,5 @@
 <div class="aside col-3 m-0 d-none d-lg-block p-0">
-    <div class=" p-0 ml-0 mr-0 mt-5" id="aside-content">
+    <div class="text-center p-0 ml-0 mr-0 mt-5" id="aside-content">
             <!-- Aside -->
         {{--<ins class="adsbygoogle"
              style="display:block"
@@ -16,7 +16,10 @@
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>--}}
 
-        <div class="fb-page col-12 p-0 mb-4" data-href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour" data-tabs="small_header" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour">GameCore</a></blockquote></div>
+
+
+        {{--<a class="twitter-timeline items" data-width="300" data-theme="light" href="https://twitter.com/GameCor16434918?ref_src=twsrc%5Etfw">Tweets by GameCor16434918</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>--}}
+
 
         <img src="{{asset('img/3.jpg')}}" class="items">
         <img src="{{asset('img/3.jpg')}}" class="items">
