@@ -85,6 +85,8 @@
         </div>
     </nav>
 
+
+
     <!--==========================
     Social Section
     ============================-->
@@ -101,6 +103,25 @@
             </li>
         </ul>
     </section>
+
+
+    {{--<section id="search">
+        <ul>
+            <li class="fb wow slideInLeft" data-wow-delay="0s">
+                <div class="wrapper justify-content-center text-center">
+                    <div class="search-container">
+                        <form method="POST" action="">
+                            <input type="text" class="input" placeholder="Search">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </form>
+
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>--}}
+
+
 
     @yield('content')
 </div>
