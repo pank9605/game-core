@@ -52,7 +52,9 @@ class WelcomeController extends Controller
         $featuredPcMovil = collect();
         foreach ($newsFeatured as $item) {
             if ($item->category->name == "PC" && $item->clasification->name == "Noticias" ||
-                $item->category->name == "Movil" && $item->clasification->name == "Noticias"){
+                $item->category->name == "Movil" && $item->clasification->name == "Noticias" ||
+                $item->clasification->name == "Reseñas"
+            ){
                 $featuredPcMovil->push($item);
             }
         }

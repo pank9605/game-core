@@ -91,13 +91,13 @@
     <section id="social">
         <ul>
             <li class="fb wow slideInLeft" data-wow-delay="0s">
-                <a href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour" target="_blank"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour" target="_blank"><i class="fab fa-facebook fa-sm"></i></a>
             </li>
             <li class="tw wow slideInLeft" data-wow-delay="0.5s">
-                <a href=""><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="https://twitter.com/GameCor16434918" target="_blank"><i class="fab fa-twitter fa-sm"></i></a>
             </li>
             <li class="ig wow slideInLeft" data-wow-delay="1.5s">
-                <a href=""><i class="fab fa-instagram fa-lg"></i></a>
+                <a href=""><i class="fab fa-instagram fa-sm"></i></a>
             </li>
         </ul>
     </section>

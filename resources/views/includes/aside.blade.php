@@ -1,5 +1,5 @@
 <div class="aside col-xl-3 col-11 mt-0 mr-auto ml-auto d-none d-block p-0">
-    <div class="row text-center p-0 ml-0 mr-0 mt-5" id="aside-content">
+    <div class="row text-center p-0 ml-0 mr-0 mt-4 mt-xl-5" id="aside-content">
             <!-- Aside -->
         {{--<ins class="adsbygoogle"
              style="display:block"
@@ -16,7 +16,7 @@
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>--}}
 
-        <div class="col-12 justify-content-center text-center align-items-center p-0">
+        <div class="col-12 items justify-content-center text-center align-items-center p-0">
             <div class="fb-page items text-center p-0 mr-auto ml-auto"
                  data-href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour"
                  data-tabs="small_header"
@@ -28,10 +28,6 @@
                     <a href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour">GameCore</a></blockquote>
             </div>
         </div>
-
-
-
-
 
 
         @for($i=0; $i<13; $i++)
