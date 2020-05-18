@@ -186,7 +186,7 @@ con nuestras noticias, reseñas, podcast, unboxings, especiales y mucho más.
                     @endforeach
 
 
-                <nav aria-label="Page navigation example">
+                <nav class="mt-4" aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         {{$news->links()}}
                     </ul>
