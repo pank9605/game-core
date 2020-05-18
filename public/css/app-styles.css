@@ -56,7 +56,7 @@
 }
 
 #aside-content .items{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding: 0px;
 }
 
@@ -349,6 +349,12 @@
     z-index: 999;
 }
 
+.fb-page,
+.fb-page span,
+.fb-page span iframe[style] {
+    width: 100% !important;
+}
+
 @media only screen and (max-width: 1200px) {
     .carousel-caption {
         font-size: 8px;
@@ -369,6 +375,11 @@
 
     .principal-sections{
         margin: auto;
+    }
+    .fb-page,
+    .fb-page span,
+    .fb-page span iframe[style] {
+        max-width: 500px !important;
     }
 }
 

@@ -186,11 +186,7 @@ con nuestras noticias, reseñas, podcast, unboxings, especiales y mucho más.
                     @endforeach
 
 
-                <nav class="mt-4" aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center">
-                        {{$news->links()}}
-                    </ul>
-                </nav>
+
 
                 <!-- Baner -->
                 {{--<ins class="adsbygoogle"
@@ -206,6 +202,12 @@ con nuestras noticias, reseñas, podcast, unboxings, especiales y mucho más.
 
 
         @include('includes.aside')
+
+        <nav class="mt-4 col-12" aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                {{$news->links()}}
+            </ul>
+        </nav>
     </div>
     @include('includes.footer')
 @endsection
