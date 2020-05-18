@@ -18,7 +18,13 @@
                 <div class="col-lg-8 blog-main">
 
                     <div class="blog-post">
-                        <p class="blog-post-meta">{{$news->date}} por {{$news->user->username}}</p>
+                        <p class="blog-post-meta">{{$news->date}} por {{$news->user->username}} </p>
+
+                        <div class="col-12 mb-2 p-0 text-left">
+                            <div class="fb-share-button" data-href="{{url('http://www.gcgamecore.com/news/'.$news->category->name.'/'.$news->clasification->name.'/'.$news->id)}}"
+                                 data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a>
+                            </div>
+                        </div>
 
                         <p>{{$news->introduction}}.</p>
                         <!-- Baner -->
@@ -31,6 +37,8 @@
                         <hr>
                         <img src="{{$news->news_image_featured}}" class="img-thumbnail" alt="Responsive image">
                         <hr>
+
+
                         {!!$news->description!!}
                         <hr>
                         @if($news->calification != null)
@@ -42,7 +50,7 @@
                             </div>
                         @endif
                     </div><!-- /.blog-post -->
-                    <div class="fb-comments" data-href="http://www.gcgamecore.com/" data-numposts="10" data-width="100%"></div>
+
                 </div><!-- /.blog-main -->
 
 
@@ -66,6 +74,7 @@
                         </div>
                     @endif
                     <div class="sidebar-module">
+
                         <h4>Elsewhere</h4>
                         <ol class="list-unstyled">
                             <li><a href="#">Twitter</a></li>
@@ -83,7 +92,13 @@
 
 
             </div><!-- /.row -->
+            <div class="col-12 mb-2 p-0 text-left">
+                <div class="fb-share-button" data-href="{{url('http://www.gcgamecore.com/news/'.$news->category->name.'/'.$news->clasification->name.'/'.$news->id)}}"
+                     data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Compartir</a>
+                </div>
+            </div>
 
+            <div class="fb-comments mb-2" data-mobile="Auto-detected" data-href="http://www.gcgamecore.com/" data-numposts="10" data-width="100%"></div>
 
         </div><!-- /.container -->
 

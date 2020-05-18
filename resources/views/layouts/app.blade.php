@@ -49,7 +49,7 @@
 </head>
 <body class="p-0 m-0">
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0"></script>
+
 
 <div id="app">
     <nav class="navbar navbar-expand-lg navbar-dark position-fixed menu-container" id="menu">
@@ -130,5 +130,10 @@
 <script defer>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0&appId=260127125344466&autoLogAppEvents=1"></script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0"></script>
 </body>
 </html>
