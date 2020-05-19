@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="row text-justify m-auto justify-content-center" style="padding-top: 130px; margin-bottom: 50px; font-size: 16px;">
+    <div class="row text-justify m-auto justify-content-center" style="padding-top: 130px; padding-bottom: 70px; font-size: 16px;">
 
         <div class="col-11 col-xl-9">
             <h4><b>Políticas de Privacidad</b></h4>
