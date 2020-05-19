@@ -47,7 +47,7 @@
 
 </head>
 <body class="p-0 m-0">
-<div id="fb-root"></div>
+
 
 <script>
     window.fbAsyncInit = function() {
