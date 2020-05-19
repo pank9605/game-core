@@ -132,5 +132,25 @@
 <script type="text/javascript" src="{{ asset('js/styles.js') }}" ></script>
 <script type="text/javascript" src="{{asset('js/Knob/js/jquery.knob.js')}}" ></script>
 <script type="text/javascript" src="{{ asset('js/Knob/config.js')}}"></script>
+
+<script defer>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '260127125344466',
+            xfbml      : true,
+            version    : 'v7.0'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
 </body>
 </html>
