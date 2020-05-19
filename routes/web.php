@@ -18,6 +18,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'WelcomeController@index');
 Route::get('/news', 'WelcomeController@index');
 
+Route::get('/politicas', 'WelcomeController@showPolitics');
+
 Auth::routes();
 
 Route::middleware(['auth','staff','username'])->prefix('staff/founder')->group(function (){

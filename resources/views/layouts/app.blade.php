@@ -50,6 +50,7 @@
 
 
 <div id="app">
+
     <nav class="navbar navbar-expand-lg navbar-dark position-fixed menu-container" id="menu">
         <a class="navbar-brand" href="{{url('/')}}">
             <img id="logo" src="{{asset('img/corewhite.png')}}" height="40" alt="Game Core">
@@ -120,8 +121,9 @@
     </section>--}}
 
 
-
+    @include('cookieConsent::index')
     @yield('content')
+
 </div>
 
 <!-- Scripts -->

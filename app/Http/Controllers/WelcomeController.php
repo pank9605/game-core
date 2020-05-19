@@ -155,4 +155,8 @@ class WelcomeController extends Controller
     {
         //
     }
+
+    public function showPolitics(){
+        return view('general.politics');
+    }
 }
