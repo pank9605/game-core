@@ -91,7 +91,7 @@
                                         <a href="#"><i class="fas fa-user"></i> Administradores</a>
                                     </li>
                                     <li>
-                                        <a href="#"><i class="fas fa-user-edit"></i> Editores</a>
+                                        <a href="{{url('staff/editor')}}"><i class="fas fa-user-edit"></i> Editores</a>
                                     </li>
                                 </ul>
                             </li>

@@ -53,6 +53,15 @@ Route::middleware(['auth','staff','editor','username'])->prefix('staff')->group(
 
 });
 
+Route::middleware(['auth','staff','username'])->prefix('staff/editor')->group(function (){
+    Route::get('/', 'Staff\EditorController@index');
+
+    Route::post('/create','Staff\EditorController@store'); //Registro de Editor
+    Route::get('/edit/{id}','Staff\EditorsController@edit'); //Formulario de Edicion de Editor
+    Route::post('/edit/{id}','Staff\EditorController@update'); //Editar Editor
+    Route::delete('/{id}/delete','Staff\EditorController@destroy'); //Eliminar Editor
+});
+
 Route::get('/porfile/{id}','HomeController@show'); //Formulario para Perfil
 Route::post('/porfile/{id}/edit/','HomeController@update'); //Editar Perfil
 

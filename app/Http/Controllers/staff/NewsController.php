@@ -230,6 +230,7 @@ class NewsController extends Controller
 
         $news->title = $request->input('title');
         $news->introduction = $request->input('introduction');
+        $news->about = $request->input('about');
         $news->category_id = $category->id;
         $news->clasification_id = $clasification->id;
         $news->description = $request->input('description');
