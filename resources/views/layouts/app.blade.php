@@ -1,3 +1,4 @@
+@include('cookieConsent::index')
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -121,7 +122,7 @@
     </section>--}}
 
 
-    @include('cookieConsent::index')
+
     @yield('content')
 
 </div>

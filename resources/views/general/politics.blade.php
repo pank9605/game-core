@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-    <div class="row text-justify m-auto justify-content-center" style="padding-top: 130px; padding-bottom: 70px; font-size: 16px;">
+    <div class="row text-justify mr-auto ml-auto justify-content-center" style="padding-top: 130px; margin-bottom: 40px; font-size: 16px;">
 
-        <div class="col-11 col-xl-9">
+        <div class="col-11 col-xl-9" style="margin-bottom: 30px">
             <h4><b>Políticas de Privacidad</b></h4>
 
 
@@ -26,11 +26,11 @@
             <br>
             <b>Todos los derechos reservados &copy; Game-Core 2020</b>
         </div>
-        </div>
+    </div>
 
 
 
-<div class="politics-footer fixed-bottom">
+<div class="politics-footer" style="bottom: 0; position: fixed; width: 100%;">
     @include('includes.footer')
 </div>
 
