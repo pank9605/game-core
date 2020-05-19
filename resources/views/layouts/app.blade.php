@@ -47,11 +47,7 @@
 
 </head>
 <body class="p-0 m-0">
-
-
 <div id="fb-root"></div>
-
-
 
 
 <div id="app">
@@ -88,6 +84,8 @@
             </ul>
         </div>
     </nav>
+
+
 
     <!--==========================
     Social Section
@@ -134,6 +132,7 @@
 <script type="text/javascript" src="{{ asset('js/styles.js') }}" ></script>
 <script type="text/javascript" src="{{asset('js/Knob/js/jquery.knob.js')}}" ></script>
 <script type="text/javascript" src="{{ asset('js/Knob/config.js')}}"></script>
+
 
 </body>
 </html>
