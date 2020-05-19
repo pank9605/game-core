@@ -49,7 +49,7 @@
 <body class="p-0 m-0">
 
 
-<script type="javascript">
+<script>
     window.fbAsyncInit = function() {
         FB.init({
             appId      : '260127125344466',
