@@ -1,5 +1,3 @@
-
-
 $(function () {
     menuResize();
 });
@@ -12,10 +10,12 @@ function menuResize(){
     var width = $(window).width();
     if (width >= 1200) {
         //scrollXl();
-        $("#carousel1").css('padding-top','0px');
+        $("#carousel1").css('margin-top','0px');
+        $("#carousel1").css('float','none');
 
     } else if(width < 1200){
-        $("#carousel1").css('padding-top','74px');
+        $("#carousel1").css('margin-top','74px');
+        $("#carousel1").css('float','left');
         //scrollSm();
     }
 }
@@ -42,7 +42,7 @@ $(window).scroll(function() {
             });
 
         }
-    }else{
+    }else if (width < 1200){
         if ($("#menu").offset().top > 70) {
             $("#menu").css('background','rgba(0, 0, 0, 0.9)');
 
@@ -54,8 +54,9 @@ $(window).scroll(function() {
                 queue: false,
             });
 
-            $("#carousel1").css('padding-top','60px');
-        } else {
+            $("#carousel1").css('margin-top','60px');
+            $("#carousel1").css('float','left');
+        }else {
             $("#menu").css('background','rgba(0, 0, 0, 0.7)');
 
             $("#menu").animate({
@@ -66,9 +67,10 @@ $(window).scroll(function() {
             });
 
             $("#carousel1").animate({
-                paddingTop: "74px",
+                marginTop: "74px",
+                float:"none"
 
-            },{
+        },{
                 queue: false,
             });
         }

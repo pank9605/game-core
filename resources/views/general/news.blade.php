@@ -28,7 +28,7 @@
                             <div class="col-auto fb-like pl-1" data-href="{{url('http://www.gcgamecore.com/news/'.$news->category->name.'/'.$news->clasification->name.'/'.$news->id)}}" data-width="" data-layout="button_count" data-action="like" data-size="large" data-share="true"></div>
                         </div>
 
-                        <p>{{$news->introduction}}.</p>
+                        <p>{{$news->introduction}}</p>
                         <!-- Baner -->
                         {{--<ins class="adsbygoogle"
                              style="display:block"

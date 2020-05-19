@@ -25,6 +25,7 @@
     right: 0;
     left: 0;
     bottom: 0;
+    z-index: 0;
 }
 
 .title{
@@ -386,12 +387,10 @@
         max-width: 25px;
     }
 
-
     #social ul > li {
         padding-bottom: 1px;
         padding-top: 0px;
     }
-
 
 }
 
