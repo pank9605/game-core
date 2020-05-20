@@ -17,6 +17,7 @@
             </div>
         </div>
 
+        <script type="javascript" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Aside 1 -->
         <ins class="adsbygoogle"
              style="display:block"
@@ -24,14 +25,9 @@
              data-ad-slot="8509430972"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-
-        <!-- Aside 2 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5455720448748407"
-             data-ad-slot="4505030376"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+        <script type="javascript">
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
 
 
         {{--@for($i=0; $i<13; $i++)
@@ -44,21 +40,7 @@
 
         @endfor--}}
         <div class="col-12 items"><a class="twitter-timeline" data-width="100%" data-height="350px" data-theme="light" href="https://twitter.com/GameCor16434918?ref_src=twsrc%5Etfw">Tweets by GameCor16434918</a></div>
-    <!-- Aside 3 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5455720448748407"
-             data-ad-slot="3449989060"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
 
-        <!-- Aside 4 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5455720448748407"
-             data-ad-slot="7004777612"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
 
 
 
