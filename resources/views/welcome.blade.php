@@ -1,14 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Bienvenido a '.config('app.name'))
 
-@section('page-title','Game-Core')
-@section('page-description','Entérate de las más recientes novedades sobre el mundo de los Videojuegos
-con nuestras noticias, reseñas, podcast, unboxings, especiales y mucho más.
-¡Solo en Game-Core!')
-@section('url','http://www.gcgamecore.com/')
-@section('page-image','http://www.gcgamecore.com/img/coreblack.png')
-
-
 @section('content')
     <!--Slider-->
     <div id="carousel1" class="carousel slide zindex" data-ride="carousel">

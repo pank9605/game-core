@@ -38,15 +38,19 @@
 
 
     <!-- Facebook -->
-    <meta property="og:title" content="@yield('page-title')" />
-    <meta property="og:description" content="@yield('page-description')" />
-    <meta property="og:image" content="@yield('page-image')" />
-    <meta property="og:url" content="@yield('url')" />
+    <meta property="og:title" content="@yield('page-title','Game-Core')" />
+    <meta property="og:description" content="@yield('page-description','Entérate de las más recientes novedades sobre el mundo de los Videojuegos
+con nuestras noticias, reseñas, podcast, unboxings, especiales y mucho más.
+¡Solo en Game-Core!')" />
+    <meta property="og:image" content="@yield('page-image','http://www.gcgamecore.com/img/coreblack.png')" />
+    <meta property="og:url" content="@yield('url','http://www.gcgamecore.com/')" />
     <meta property="fb:app_id" content="260127125344466" />
     <meta property="og:type" content="article" />
 
 </head>
 <body class="p-0 m-0">
+
+
 
 
 <script>
