@@ -29,20 +29,19 @@
                         </div>
 
                         <p class="text-justify">{{$news->introduction}}</p>
-                        <!-- Baner -->
-                        {{--<ins class="adsbygoogle"
-                             style="display:block"
+                        <ins class="adsbygoogle"
+                             style="display:block; text-align:center;"
+                             data-ad-layout="in-article"
+                             data-ad-format="fluid"
                              data-ad-client="ca-pub-5455720448748407"
-                             data-ad-slot="8013864695"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>--}}
+                             data-ad-slot="9935506361"></ins>
                         <hr>
                         <img src="{{$news->news_image_featured}}" class="img-thumbnail" alt="Responsive image">
                         <hr>
 
-
                         {!!$news->description!!}
                         <hr>
+
                         @if($news->calification != null)
                             <div class="col-12 mt-4 mb-5 calification-content text-right">
                                 <li class="row  justify-content-center text-sm-right text-center">

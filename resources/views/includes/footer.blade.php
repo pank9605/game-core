@@ -31,9 +31,9 @@
 
             <div class="col-sm-3">
                 <div class="social-networks">
-                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://twitter.com/GameCor16434918" class="twitter"><i class="fab fa-twitter"></i></a>
                     <a href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour" class="facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="google"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/gamecoreoficial/" class="google"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 

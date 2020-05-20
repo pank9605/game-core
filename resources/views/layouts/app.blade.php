@@ -121,7 +121,7 @@ con nuestras noticias, reseñas, podcast, unboxings, especiales y mucho más.
                 <a href="https://twitter.com/GameCor16434918" target="_blank"><i class="fab fa-twitter fa-sm"></i></a>
             </li>
             <li class="ig wow slideInLeft" data-wow-delay="1.5s">
-                <a href=""><i class="fab fa-instagram fa-sm"></i></a>
+                <a href="https://www.instagram.com/gamecoreoficial/"><i class="fab fa-instagram fa-sm"></i></a>
             </li>
         </ul>
     </section>
