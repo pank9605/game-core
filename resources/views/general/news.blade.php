@@ -28,7 +28,7 @@
                             <div class="col-auto fb-like pl-1" data-href="{{url('http://www.gcgamecore.com/news/'.$news->category->name.'/'.$news->clasification->name.'/'.$news->id)}}" data-width="" data-layout="button_count" data-action="like" data-size="large" data-share="true"></div>
                         </div>
 
-                        <p>{{$news->introduction}}</p>
+                        <p class="text-justify">{{$news->introduction}}</p>
                         <!-- Baner -->
                         {{--<ins class="adsbygoogle"
                              style="display:block"
@@ -75,14 +75,14 @@
                             </ol>
                         </div>
                     @endif
-                    <div class="sidebar-module">
+                    {{--<div class="sidebar-module">
 
                         <h4>Elsewhere</h4>
                         <ol class="list-unstyled">
                             <li><a href="#">Twitter</a></li>
                             <li><a href="#">Facebook</a></li>
                         </ol>
-                    </div>
+                    </div>--}}
                     <!-- Aside Large -->
                     {{--<ins class="adsbygoogle"
                          style="display:block"
