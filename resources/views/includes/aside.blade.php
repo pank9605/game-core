@@ -1,9 +1,6 @@
 <div class="aside col-xl-3 col-11 mt-0 mr-auto ml-auto d-none d-block p-0">
     <div class="row text-center p-0 ml-0 mr-0 mt-4 mt-xl-5" id="aside-content">
 
-
-
-
         <div class="col-12 items justify-content-center text-center align-items-center p-0">
             <div class="fb-page items text-center p-0 mr-auto ml-auto"
                  data-href="https://www.facebook.com/GameCore-101570291364601/?modal=admin_todo_tour"
